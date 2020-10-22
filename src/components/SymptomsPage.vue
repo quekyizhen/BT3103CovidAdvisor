@@ -121,7 +121,7 @@
         <!--input type="submit" value="Submit"-->
         <button type="button" class="btn" @click="showModal">Submit </button>
 
-        <modal v-show="isModalVisible" @close="closeModal"/>
+        <modal v-bind:symptomsSelected="symptomsSelected" v-bind:riskSelected="riskSelected" v-bind:contact="contact" v-show="isModalVisible" @close="closeModal"/>
 
     </div>
 </template>
