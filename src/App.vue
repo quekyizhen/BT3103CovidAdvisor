@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div id="header">
-      <router-link to="/symptoms" exact>Check your symptoms here</router-link>
       <h1><router-link to="/" exact>Covid Advisor</router-link></h1>
 
       <div v-if="signedin" class="link"><router-link to="/profile" exact>My Profile</router-link></div>
