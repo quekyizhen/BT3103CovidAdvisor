@@ -1,43 +1,52 @@
 <template>
     <div id="symptoms">
-        <h1 id="title">Step 1: Track your symptoms</h1>
+        <h1 class="title">Step 1: Track your symptoms</h1>
 
-        <h2 id="list">Symptoms Onset Date:</h2>
+        <h2 class="list">Symptoms Onset Date:</h2>
         <p class="symps">
         <input type="date" id="date" name="date">
         </p>
 
-        <h2 id="list">List of Symptoms: (Check all applicable)</h2>
+        <h2 class="list">List of Symptoms: (Check all applicable)</h2>
         <p class="symps">
+        <img src="@/assets/fever.jpg" width="300" height="200" alt="Fever Image"><br>
         <input type="checkbox" value="Fever" v-model="symptomsSelected">
-        <label for="fever">Fever</label> <br>
+        <label for="fever">Fever</label> <br><br>
 
+        <img src="@/assets/cough.jpg" width="300" height="200" alt="Cough Image"><br>
         <input type="checkbox" value="Cough" v-model="symptomsSelected">
-        <label for="cough">Cough</label> <br>
+        <label for="cough">Cough</label> <br><br>
 
+        <img src="@/assets/chills.jpg" width="300" height="200" alt="Chills Image"><br>
         <input type="checkbox" value="Chills or rigors" v-model="symptomsSelected">
-        <label for="chills">Chills or rigors</label> <br>
+        <label for="chills">Chills or rigors</label> <br><br>
 
+        <img src="@/assets/sorethroat.jpg" width="300" height="200" alt="Sore Throat Image"><br>
         <input type="checkbox" value="Sore throat" v-model="symptomsSelected">
-        <label for="sore">Sore throat</label> <br>
+        <label for="sore">Sore throat</label> <br><br>
 
+        <img src="@/assets/breath.jpg" width="300" height="200" alt="Shortness of Breath Image"><br>
         <input type="checkbox" value="Shortness of breath" v-model="symptomsSelected">
-        <label for="short">Shortness of breath</label> <br>
+        <label for="short">Shortness of breath</label> <br><br>
 
+        <img src="@/assets/runnynose.jpg" width="300" height="200" alt="Runny Nose Image"><br>
         <input type="checkbox" value="Runny nose" v-model="symptomsSelected">
-        <label for="runny">Runny nose</label> <br>
+        <label for="runny">Runny nose</label> <br><br>
 
+        <img src="@/assets/headache.jpg" width="300" height="200" alt="Headache Image"><br>
         <input type="checkbox" value="Headache" v-model="symptomsSelected">
-        <label for="headache">Headache</label> <br>
+        <label for="headache">Headache</label> <br><br>
 
+        <img src="@/assets/fatigue.jpg" width="300" height="200" alt="Fatigue Image"><br>
         <input type="checkbox" value="Fatigue" v-model="symptomsSelected">
-        <label for="fatigue">Fatigue</label> <br>
+        <label for="fatigue">Fatigue</label> <br><br>
 
+        <img src="@/assets/lossoftaste.jpg" width="300" height="200" alt="Loss of Taste/Smell Image"><br>
         <input type="checkbox" value="Loss of taste/smell" v-model="symptomsSelected">
-        <label for="loss">Loss of taste/smell</label> <br>
+        <label for="loss">Loss of taste/smell</label> <br><br>
         </p>
         
-        <p class="symps" v-if="symptomsSelected.length !=0"> Symptoms Selected: 
+        <p class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   
@@ -45,7 +54,7 @@
             </ul>
         </p>
 
-        <h2 id="list">Have you travelled in the past 2 weeks?</h2>
+        <h2 class="list">Have you travelled in the past 2 weeks?</h2>
         <p class="symps">
         <input type="radio" id="yes" value="Yes" v-model="travelled">
         <label for="yes">Yes</label> <br>
@@ -53,7 +62,7 @@
         <label for="no">No</label>
         </p>
 
-        <h2 id="list">Have you been in contact with a COVID-19 patient in the past 2 weeks?</h2>
+        <h2 class="list">Have you been in contact with a COVID-19 patient in the past 2 weeks?</h2>
         <p class="symps">
         <input type="radio" id="yes1" value="Yes" v-model="contact">
         <label for="yes1">Yes</label> <br>
@@ -61,9 +70,9 @@
         <label for="no1">No</label>
         </p>
 
-        <h1 id="title">Step 2: Enter your Medical History</h1>
+        <h1 class="title">Step 2: Enter your Medical History</h1>
 
-        <h2 id="list">Gender</h2>
+        <h2 class="list">Gender</h2>
         <p class="symps">
         <input type="radio" id="male" value="Male" v-model="gender">
         <label for="male">Male</label> <br>
@@ -71,7 +80,7 @@
         <label for="no">Female</label>
         </p>
 
-        <h2 id="list">Age</h2>
+        <h2 class="list">Age</h2>
         <p class="symps">
         <input type="radio" id="age1" value="age1" v-model="age">
         <label for="age1">12 and below</label> <br>
@@ -90,7 +99,7 @@
 
         </p>
 
-        <h2 id="list">Prevailing Risk Factors: (Check all applicable)</h2>
+        <h2 class="list">Prevailing Risk Factors: (Check all applicable)</h2>
         <p class="symps">
         <input type="checkbox" value="Cardiac Disease" v-model="riskSelected">
         <label for="Cardiac Disease">Cardiac Disease</label> <br>
@@ -117,15 +126,21 @@
         <label for="Renal Disease">Renal Disease</label> <br>
         </p>
 
-        <!--button id="button">Save</button> <button id="button">Submit</button-->
-        <!--input type="submit" value="Submit"-->
-        <button type="button" class="btn" @click="showModal">Submit </button>
+        <p class="symps" v-if="riskSelected.length !=0"> Risk Factor(s) Selected: 
+             <ul>
+                <li v-for="risk in riskSelected" v-bind:key="risk">
+                {{risk}}   
+                </li>
+            </ul>
+        </p>
 
-        <modal v-bind:symptomsSelected="symptomsSelected" v-bind:riskSelected="riskSelected" v-bind:contact="contact" v-show="isModalVisible" @close="closeModal"/>
+        <div class="wrapper">
+            <button type="button" class="btn" @click="showModal">Submit </button>
+            <modal v-bind:symptomsSelected="symptomsSelected" v-bind:riskSelected="riskSelected" v-bind:contact="contact" v-bind:age="age" v-show="isModalVisible" @close="closeModal"/>
+        </div>
 
     </div>
 </template>
-
 
 <script>
 //import Datepicker from 'vuejs-datepicker'
@@ -158,24 +173,29 @@ export default {
 }
 </script>
 
-
 <style scoped>
 #symptoms {
   padding:60px;
 }
-#title {
+
+.title {
   text-align: center;
 }
-#list {
+.list {
   text-align: left;
   margin-top: 60px;
 }
 p.symps {
   text-align: left;
 }
-#button {
-    margin-left: 20px;
-    
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
 }
 
 </style>
