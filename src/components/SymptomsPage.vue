@@ -1,6 +1,11 @@
 <template>
+<<<<<<< HEAD
     <div>
         <h1 class="title">Step 1: Track your symptoms</h1>
+=======
+    <div id="symptoms">
+        <h1 id="title">Step 1: Track your symptoms</h1>
+>>>>>>> 9d955f15a3c733ddee2664ab79905623d65ad2c5
 
         <h2 id="list">Symptoms Onset Date:</h2>
         <p class="symps">
@@ -160,19 +165,22 @@ export default {
 
 
 <style scoped>
+<<<<<<< HEAD
 .title {
+=======
+#symptoms {
+  padding:60px;
+}
+#title {
+>>>>>>> 9d955f15a3c733ddee2664ab79905623d65ad2c5
   text-align: center;
-  margin-top: 60px;
-  margin-left: 60px;
 }
 #list {
   text-align: left;
   margin-top: 60px;
-  margin-left: 60px;
 }
 p.symps {
   text-align: left;
-  margin-left: 60px;
 }
 #button {
     margin-left: 20px;
