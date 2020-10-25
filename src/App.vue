@@ -13,6 +13,7 @@
     </div>
     <div style="width:100%;">
       <router-view></router-view>
+      <!--symptoms-page></symptoms-page-->
     </div>
     <div id="copyright">&#169; BT3103 Octopus 2020</div>
   </div>
@@ -20,9 +21,12 @@
 
 <script>
 
+//import SymptomsPage from './components/SymptomsPage.vue'
+
 export default {
   name: 'App',
   components: {
+    //'symptoms-page': SymptomsPage
   },
   data() {
     return {
