@@ -12,12 +12,25 @@
 
       <section class="modal-body">
         <slot name="body">
-          <p v-if="symptomsSelected.length <=2 && riskSelected.length <=1" >Your inputs do not suggest that you may have COVID-19. <br>
-          Please continue to self-monitor for any new symptoms and revisit this website to log in your symptoms should any develop.</p>
-          <p v-if=" (symptomsSelected.length >=3 && symptomsSelected.length <=6) || (riskSelected.length >=2 && riskSelected.length <=4)">It is probable that you may be infected with COVID-19. Please seek professional advice from a doctor! 
-          Click <a href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. 
+          <p v-if="symptomsSelected.length <=2 && contact=='No'">
+            Your inputs do not suggest that you may have COVID-19. <br>
+            Please continue to self-monitor for any new symptoms and revisit this website to log in your symptoms should any develop.
           </p>
-          <p v-if="symptomsSelected.length >= 7 && riskSelected.length >=1 && contact =='Yes'">It is highly probable that you may be infected with COVID-19. Please go to the Emergency Department at the hospital immediately! 
+          <p v-else-if="symptomsSelected.length <=2 && contact=='Yes'">
+            It is probable that you may be infected with COVID-19. Please seek professional advice from a doctor! 
+            Click <a href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. 
+            <iframe width="600" height="400" src="https://data.gov.sg/dataset/chas-clinics/resource/21dace06-c4d1-4128-9424-aba7668050dc/view/5cbf5325-26d2-4e3b-a54d-e20d6d07dcd2" frameBorder="0"> </iframe>
+          </p>
+          <p v-else-if=" (symptomsSelected.length >=3 && symptomsSelected.length <=6) && contact=='No'">
+            It is probable that you may be infected with COVID-19. Please seek professional advice from a doctor! 
+            Click <a href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. 
+            <iframe width="600" height="400" src="https://data.gov.sg/dataset/chas-clinics/resource/21dace06-c4d1-4128-9424-aba7668050dc/view/5cbf5325-26d2-4e3b-a54d-e20d6d07dcd2" frameBorder="0"> </iframe>
+          </p>
+          <p v-else-if=" (symptomsSelected.length >=3 && symptomsSelected.length <=6) && contact=='Yes'">
+            It is highly probable that you may be infected with COVID-19. Please go to the Emergency Department at the hospital immediately! 
+          </p>
+          <p v-else-if="symptomsSelected.length >= 7 && contact =='Yes'">
+            It is highly probable that you may be infected with COVID-19. Please go to the Emergency Department at the hospital immediately! 
           </p>
         </slot>
        </section>
@@ -46,6 +59,9 @@
         type:Array
       },
       contact: { //passed from SymptomsPage.vue
+        type:String
+      },
+      age: { //passed from SymptomsPage.vue
         type:String
       },
     },
@@ -80,12 +96,11 @@
 
   .modal-header,
   .modal-footer {
-    padding: 15px;
+    padding: 10px;
     display: flex;
   }
 
   .modal-header {
-  
     color: #DC143C;
     justify-content: space-between;
   }
