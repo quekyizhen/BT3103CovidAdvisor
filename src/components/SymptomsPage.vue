@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="symptoms">
         <h1 id="title">Step 1: Track your symptoms</h1>
 
         <h2 id="list">Symptoms Onset Date:</h2>
@@ -121,7 +121,7 @@
         <!--input type="submit" value="Submit"-->
         <button type="button" class="btn" @click="showModal">Submit </button>
 
-        <modal v-show="isModalVisible" @close="closeModal"/>
+        <modal v-bind:symptomsSelected="symptomsSelected" v-bind:riskSelected="riskSelected" v-bind:contact="contact" v-show="isModalVisible" @close="closeModal"/>
 
     </div>
 </template>
@@ -160,19 +160,18 @@ export default {
 
 
 <style scoped>
+#symptoms {
+  padding:60px;
+}
 #title {
   text-align: center;
-  margin-top: 60px;
-  margin-left: 60px;
 }
 #list {
   text-align: left;
   margin-top: 60px;
-  margin-left: 60px;
 }
 p.symps {
   text-align: left;
-  margin-left: 60px;
 }
 #button {
     margin-left: 20px;
