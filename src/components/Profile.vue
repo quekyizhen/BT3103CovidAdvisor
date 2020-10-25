@@ -1,17 +1,17 @@
 <template>
-<div>
+<div id="container">
     <div class="tab">
         <h1>My Profile</h1> <br>
 
-        <router-link style="text-decoration: none;" to="/">
+        <router-link style="text-decoration: none;" to="/profile">
         <button>Profile Info</button>
         </router-link>
 
-        <router-link style="text-decoration: none;" to="/risk">
+        <router-link style="text-decoration: none;" to="/profile/risk">
         <button>Risk Assessments</button>
         </router-link>
 
-        <router-link style="text-decoration: none;" to="/settings">
+        <router-link style="text-decoration: none;" to="/profile/settings">
         <button>Settings</button>
         </router-link>
 
@@ -111,15 +111,21 @@ export default {
 </script>
 
 <style scoped>
+#container {
+  vertical-align: top;
+}
 .tab {
-  float: left;
-  border: 1px solid rgb(32,52,79);
+  display:inline-block;
   background-color: rgb(32,52,79);
   width: 20%;
   height: 800px;
+  margin-right:30px;
+  vertical-align: top;
+  padding-bottom:20px;
 }
 .tab h1 {
-    color: white
+    color: white;
+  margin:35px;
 }
 .tab button {
   display: block;
@@ -146,13 +152,13 @@ export default {
 }
 
 .content {
-    float: left;
-    padding-left: 50px;
+    display:inline-block;
     text-align: left;
-    
+  vertical-align: top;
+  padding: 20px;
 }
 input {
-    float: right;
+    float:right;
     /* clear: both; */
     margin-left: 100px;
     width: 200px
