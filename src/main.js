@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import App from './App.vue'
-import VueGeolocation from 'vue-browser-geolocation'
+import Vue from 'vue';
+import App from './App.vue';
+import VueGeolocation from 'vue-browser-geolocation';
 import router from "./routes/index";
 
 Vue.config.productionTip = false
