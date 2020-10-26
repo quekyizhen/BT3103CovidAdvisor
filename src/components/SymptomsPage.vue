@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 id="title">Step 1: Track your symptoms</h1>
+        <h1 class="title">Step 1: Track your symptoms</h1>
 
         <h2 id="list">Symptoms Onset Date:</h2>
         <p class="symps">
@@ -61,7 +61,7 @@
         <label for="no1">No</label>
         </p>
 
-        <h1 id="title">Step 2: Enter your Medical History</h1>
+        <h1 class="title">Step 2: Enter your Medical History</h1>
 
         <h2 id="list">Gender</h2>
         <p class="symps">
@@ -160,7 +160,7 @@ export default {
 
 
 <style scoped>
-#title {
+.title {
   text-align: center;
   margin-top: 60px;
   margin-left: 60px;
