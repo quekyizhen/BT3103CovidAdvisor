@@ -1,6 +1,10 @@
 import Vue from 'vue';
 import App from './App.vue';
+<<<<<<< HEAD
 import VueGeolocation from 'vue-browser-geolocation';
+=======
+import VueGeolocation from 'vue-browser-geolocation'
+>>>>>>> master
 import router from "./routes/index";
 
 Vue.config.productionTip = false
