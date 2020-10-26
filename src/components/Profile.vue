@@ -3,15 +3,15 @@
     <div class="tab">
         <h1>My Profile</h1> <br>
 
-        <router-link style="text-decoration: none;" to="/profile">
+        <router-link style="text-decoration: none;" to="/">
         <button>Profile Info</button>
         </router-link>
 
-        <router-link style="text-decoration: none;" to="/profile/risk">
+        <router-link style="text-decoration: none;" to="/risk">
         <button>Risk Assessments</button>
         </router-link>
 
-        <router-link style="text-decoration: none;" to="/profile/settings">
+        <router-link style="text-decoration: none;" to="/settings">
         <button>Settings</button>
         </router-link>
 
@@ -26,7 +26,6 @@
             </label> 
             <br><br>
 
-
             <label for="name">Last Name:
                 <input type="text" v-model="lname" value="lname"> 
             </label>
@@ -39,11 +38,6 @@
             <option>Female</option>
             </select>
             </label><br><br>
-
-            <!--label for="name">Gender:
-                <input type="text" v-model="gender" value="gender">
-            </label>
-            <br><br-->
 
             <label for="name">Age:
                 <input type="number" v-model="age" value="age">
@@ -61,52 +55,104 @@
             <br><br><br>
 
             <h1>Change Password:</h1>
-            <h4>You may change your password here</h4>
+            <h4>Please follow the requirements to change your password</h4>
             <div class="items">
 
-            <!-- <password-meter :password="password" /> -->
-
             <label for="name">Current Password:
-                <input type="password" v-model="cpassword" value="cpassword"> 
+                <input :type="passwordFieldType" v-model="cpassword" value="cpassword"> 
             </label> <br><br>
-            <!-- <button type="password" @click="switchVisibility">show / hide</button>
-            <br><br> -->
+
             <label for="name">New Password:
-                <input type="password" v-model="npassword" value="npassword"> 
+                <input :type="passwordFieldType" v-model="npassword" value="npassword"> 
             </label> <br><br>
+
             <label for="name">Confirm New Password:
-                <input type="password" v-model="cnpassword" value="cnpassword"> 
-            </label> <br><br><br>
+                <input :type="passwordFieldType" v-model.lazy="cnpassword" value="cnpassword"> 
+            </label> <br><br>
+
+            <button type="password" @click="switchVisibility">show / hide password</button>
+            <br><br>
+            
+            <transition name="hint" appear>
+              <div v-if='passwordValidation.errors.length > 0 && !submitted' class='hints'>
+                <h2>Requirements</h2>
+                <p v-for='error in passwordValidation.errors' v-bind:key="error">{{error}}</p>
+              </div>
+            </transition>
+            <div class="matches" v-if='notSamePasswords'>
+              <p>Passwords don't match</p>
             </div>
-            <button id="end">Change My Password</button>
+            <br><br><br>
+            </div>
+
+            <button id="end" @click='resetPasswords' v-if='passwordsFilled && !notSamePasswords && passwordValidation.valid'>
+              Change My Password
+            </button>
     </div>
 </div>
 </template>
 
 <script>
-//import passwordMeter from "vue-simple-password-meter";
 export default {
     data() {
         return {
+          rules: [
+              { message:'One lowercase letter required.', regex:/[a-z]+/ },
+              { message:"One uppercase letter required.",  regex:/[A-Z]+/ },
+              { message:"8 characters minimum.", regex:/.{8,}/ },
+              { message:"One number required.", regex:/[0-9]+/ }
+            ],
             fname:'',
             lname:'',
             gender:'',
             age:'',
             email:'',
+            passwordFieldType: 'password',
             cpassword:'',
             npassword:'',
             cnpassword:'',
-            //passwordFieldType: 'password'
+            submitted:false
         }
     },
     methods: {
         switchVisibility() {
             this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
-        }
+        },
+        resetPasswords () {
+          this.cpassword = ''
+          this.npassword = ''
+          this.cnpassword = ''
+          this.submitted = true
+          setTimeout(() => {
+            this.submitted = false
+          }, 2000)
+        },
     },
-    // components: {
-    //     passwordMeter
-    // }
+    computed: {
+		notSamePasswords () {
+			if (this.passwordsFilled) {
+				return (this.npassword !== this.cnpassword)
+			} else {
+				return false
+			}
+		},
+		passwordsFilled () {
+			return (this.cpassword !== '' && this.npassword !== '' && this.cnpassword !== '')
+		},
+		passwordValidation () {
+			let errors = []
+			for (let condition of this.rules) {
+				if (!condition.regex.test(this.npassword)) {
+					errors.push(condition.message)
+				}
+			}
+			if (errors.length === 0) {
+				return { valid:true, errors }
+			} else {
+				return { valid:false, errors }
+			}
+		}
+	}
 }
 </script>
 
@@ -115,17 +161,18 @@ export default {
   vertical-align: top;
 }
 .tab {
-  display:inline-block;
+  display: inline-block;
+  border: 1px solid rgb(32,52,79);
   background-color: rgb(32,52,79);
   width: 20%;
-  height: 800px;
-  margin-right:30px;
+  height: 1000px;
+  margin-right: 30px;
   vertical-align: top;
-  padding-bottom:20px;
+  padding-bottom: 20px;
 }
 .tab h1 {
     color: white;
-  margin:35px;
+    margin: 35px
 }
 .tab button {
   display: block;
@@ -152,16 +199,19 @@ export default {
 }
 
 .content {
-    display:inline-block;
-    text-align: left;
+  display: inline-block;
+  text-align: left;
   vertical-align: top;
   padding: 20px;
+    /* float: left;
+    padding-left: 50px;
+    text-align: left; */
+    
 }
 input {
-    float:right;
-    /* clear: both; */
+    float: right;
     margin-left: 100px;
-    width: 200px
+    width: 250px
 }
 select {
     float: right;
@@ -182,34 +232,25 @@ select {
     cursor: pointer;
     border-radius: 8px;
 }
+.matches p {
+  font-size: 1.1em;
+  text-align: center;
+  background:whitesmoke;
+
+}
+.hints {
+	max-width:300px;
+	padding:1em;
+	background:whitesmoke;
+	margin: 1.5em 0;
+	font-size: .9em;
+}
+.hints p {
+	margin: 0;
+	padding-left: 1em;
+}
 /* label {
     display: inline-block;
     text-align: right;
 } */
-.po-password-strength-bar {
-  border-radius: 2px;
-  transition: all 0.2s linear;
-  height: 5px;
-  margin-top: 8px;
-}
-
-.po-password-strength-bar.risky {
-  background-color: #f95e68;
-}
-
-.po-password-strength-bar.guessable {
-  background-color: #fb964d;
-}
-
-.po-password-strength-bar.weak {
-  background-color: #fdd244;
-}
-
-.po-password-strength-bar.safe {
-  background-color: #b0dc53;
-}
-
-.po-password-strength-bar.secure {
-  background-color: #35cc62;
-}
 </style>
