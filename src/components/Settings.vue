@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="container">
     <div class="tab">
         <h1>My Profile</h1> <br>
 
@@ -28,12 +28,15 @@
             <option>Malay</option>
             <option>Tamil</option>
         </select>
+        <br><br><br>
+        <button id="end">Save Changes</button>
         </label><br><br><br>
 
         <h1>Delete Account:</h1>
-        <button id="delete">Delete My Account</button>
-        <br><br><br>
-        <button id="end">Save Changes</button>
+        <h4>In about 2 days, your account will be permanently deleted</h4>
+        <br>
+        <button id="end">Delete My Account</button>
+
     </div>
 </div>
 </template>
@@ -45,15 +48,22 @@ export default {
 </script>
 
 <style scoped>
+#container {
+  vertical-align: top;
+}
 .tab {
-  float: left;
+  display: inline-block;
   border: 1px solid rgb(32,52,79);
   background-color: rgb(32,52,79);
   width: 20%;
-  height: 800px;
+  height: 1000px;
+  margin-right: 30px;
+  vertical-align: top;
+  padding-bottom: 20px;
 }
 .tab h1 {
-    color: white
+    color: white;
+    margin: 35px
 }
 .tab button {
   display: block;
@@ -70,25 +80,36 @@ export default {
   font-size:18px
 }
 .tab button:hover {
+  background-color:rgb(117, 155, 204);
+}
+.tab button:focus {
   background-color: rgb(117, 155, 204);
 }
 .tab button:active {
   background-color: rgb(117, 155, 204);
 }
-.tab button:focus {
-  background-color: rgb(117, 155, 204);
-}
-.content {
-    float: left;
-    padding-left: 50px;
-    text-align: left;
 
+.content {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  padding: 20px;
+    /* float: left;
+    padding-left: 50px;
+    text-align: left; */
+    
+}
+input {
+    float: right;
+    margin-left: 100px;
+    width: 250px
 }
 select {
     float: right;
     clear: both;
-    width: 120px
+    width: 100px
 }
+
 #end {
     background-color: rgb(32,52,79);
     border: none;
