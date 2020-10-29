@@ -31,6 +31,10 @@ export default {
           "value": 40
         },
         {
+          "name": "Shortness of Breath",
+          "value": 40
+        },
+        {
           "name": "Cough",
           "value": 30
         },
@@ -48,11 +52,15 @@ export default {
         },
         {
           "name": "Runny Nose",
-          "value": 12
+          "value": 15
         },
         {
           "name": "Headache",
-          "value": 12
+          "value": 18
+        }, 
+        {
+          "name": "Chills or Rigors",
+          "value": 20
         }
       ]
     }
