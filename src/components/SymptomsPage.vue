@@ -1,5 +1,7 @@
 <template>
     <div id="symptoms">
+         <word-cloud></word-cloud>
+
         <h1 class="title">Step 1: Track your symptoms</h1>
 
         <h2 class="list">Symptoms Onset Date:</h2>
@@ -145,10 +147,12 @@
 <script>
 //import Datepicker from 'vuejs-datepicker'
 import ModalWindow from './ModalWindow.vue'
+import WordCloud from './WordCloud.vue'
 
 export default {
     components: {
-    'modal': ModalWindow
+    'modal': ModalWindow,
+    'word-cloud': WordCloud
     },
     data() {
         return {
