@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <div id="header">
-      <h1>Covid Advisor</h1>
-      <router-link to="/symptoms" exact>Check your symptoms here</router-link>
-      <router-link to="/stats" exact>Statistics</router-link>
-      <router-link to="/login" exact>Login/Register</router-link>
+      <h1><router-link to="/" exact>Covid Advisor</router-link></h1>
+
+      <div v-if="signedin" class="link"><router-link to="/profile" exact>My Profile</router-link></div>
+      <div v-else><div class="link"><router-link to="/login" exact>Login/Register</router-link></div></div>
+      <div class="link"><router-link to="/symptoms" exact>Check your symptoms here</router-link></div>
+      <div class="link"><router-link to="/stats" exact>Statistics</router-link></div>
     </div>
     <div id="photobar">
       <div class="titletext">Welcome, {{username}}.</div>
     </div>
     <div style="width:100%;">
       <router-view></router-view>
+      <!--symptoms-page></symptoms-page-->
     </div>
     <div id="copyright">&#169; BT3103 Octopus 2020</div>
   </div>
@@ -18,13 +21,17 @@
 
 <script>
 
+//import SymptomsPage from './components/SymptomsPage.vue'
+
 export default {
   name: 'App',
   components: {
+    //'symptoms-page': SymptomsPage
   },
   data() {
     return {
-      username: "User"
+      username: "User",
+      signedin: true
     }
   }
 }
@@ -86,6 +93,7 @@ h1 {
   line-height:100px;
   padding: 0 20px;
   color:white;
+  float:left;
 }
 
 #header a {
@@ -98,13 +106,13 @@ h1 {
   color:white
 }
 
-#header a:hover {
+.link a:hover {
   background: #4e5e70;
   transition:0.5s;
 }
-/**https://onlinenutrition.cns.utexas.edu/wp-content/uploads/2018/11/GettyImages-823767128_high-1.jpg*/
+
 #photobar {
-  background: url(https://i.ibb.co/T2WnY48/Artboard-1.png) bottom;
+  background: url(https://static.tumblr.com/c1oapfr/2ysqip0tr/artboard_1.png) bottom;
   background-size: 100%;
   width:100%;
   height: 400px;
