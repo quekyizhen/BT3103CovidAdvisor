@@ -181,7 +181,6 @@ export default {
 #symptoms {
   padding:60px;
 }
-
 .title {
   text-align: center;
 }
