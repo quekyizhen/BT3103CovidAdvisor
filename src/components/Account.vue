@@ -8,7 +8,6 @@
     </label>
     <br><br>
 
-
     <label for="name">Last Name:
       <input type="text" v-model="lname" value="lname">
     </label>
@@ -21,11 +20,6 @@
         <option>Female</option>
       </select>
     </label><br><br>
-
-    <!--label for="name">Gender:
-        <input type="text" v-model="gender" value="gender">
-    </label>
-    <br><br-->
 
     <label for="name">Age:
       <input type="number" v-model="age" value="age">
@@ -43,24 +37,39 @@
   <br><br><br>
 
   <h1>Change Password:</h1>
-  <h4>You may change your password here</h4>
+  <h4>Please follow the requirements to change your password</h4>
   <div class="items">
 
-    <!-- <password-meter :password="password" /> -->
-
     <label for="name">Current Password:
-      <input type="password" v-model="cpassword" value="cpassword">
+      <input :type="passwordFieldType" v-model="cpassword" value="cpassword">
     </label> <br><br>
-    <!-- <button type="password" @click="switchVisibility">show / hide</button>
-    <br><br> -->
+
     <label for="name">New Password:
-      <input type="password" v-model="npassword" value="npassword">
+      <input :type="passwordFieldType" v-model="npassword" value="npassword">
     </label> <br><br>
+
     <label for="name">Confirm New Password:
-      <input type="password" v-model="cnpassword" value="cnpassword">
-    </label> <br><br><br>
+      <input :type="passwordFieldType" v-model.lazy="cnpassword" value="cnpassword">
+    </label> <br><br>
+
+    <button type="password" @click="switchVisibility">show / hide password</button>
+    <br><br>
+
+    <transition name="hint" appear>
+      <div v-if='passwordValidation.errors.length > 0 && !submitted' class='hints'>
+        <h2>Requirements</h2>
+        <p v-for='error in passwordValidation.errors' v-bind:key="error">{{error}}</p>
+      </div>
+    </transition>
+    <div class="matches" v-if='notSamePasswords'>
+      <p>Passwords don't match</p>
+    </div>
+    <br><br><br>
   </div>
-  <button id="end">Change My Password</button>
+
+  <button id="end" @click='resetPasswords' v-if='passwordsFilled && !notSamePasswords && passwordValidation.valid'>
+    Change My Password
+  </button>
 </div>
 </template>
 
@@ -69,15 +78,61 @@ export default {
   name: "Account",
   data() {
     return {
+      rules: [
+        { message:'One lowercase letter required.', regex:/[a-z]+/ },
+        { message:"One uppercase letter required.",  regex:/[A-Z]+/ },
+        { message:"8 characters minimum.", regex:/.{8,}/ },
+        { message:"One number required.", regex:/[0-9]+/ }
+      ],
       fname:'',
       lname:'',
       gender:'',
       age:'',
       email:'',
+      passwordFieldType: 'password',
       cpassword:'',
       npassword:'',
       cnpassword:'',
-      //passwordFieldType: 'password'
+      submitted:false
+    }
+  },
+  methods: {
+    switchVisibility() {
+      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
+    },
+    resetPasswords () {
+      this.cpassword = ''
+      this.npassword = ''
+      this.cnpassword = ''
+      this.submitted = true
+      setTimeout(() => {
+        this.submitted = false
+      }, 2000)
+    },
+  },
+  computed: {
+    notSamePasswords () {
+      if (this.passwordsFilled) {
+        return (this.npassword !== this.cnpassword)
+      } else {
+        return false
+      }
+    },
+    passwordsFilled () {
+      return (this.cpassword !== '' && this.npassword !== '' && this.cnpassword !== '')
+    },
+    passwordValidation () {
+      let errors = []
+      for (let condition of this.rules) {
+        if (!condition.regex.test(this.npassword)) {
+          errors.push(condition.message)
+        }
+      }
+      if (errors.length === 0) {
+        return { valid:true, errors }
+      } else {
+        return { valid:false, errors }
+      }
     }
   }
 }
