@@ -34,6 +34,7 @@ export default {
     toggleSignIn(username) {
       this.signedIn = true;
       this.username = username;
+      this.$router.push("/");
     },
     toggleSignOut() {
       this.signedIn = false;

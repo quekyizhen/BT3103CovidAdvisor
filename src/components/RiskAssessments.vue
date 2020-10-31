@@ -1,23 +1,5 @@
 <template>
 <div id="container">
-    <div class="tab">
-        <h1>My Profile</h1> <br>
-
-        <router-link style="text-decoration: none;" to="/">
-        <button>Profile Info</button>
-        </router-link>
-
-        <router-link style="text-decoration: none;" to="/risk">
-        <button>Risk Assessments</button>
-        </router-link>
-
-        <router-link style="text-decoration: none;" to="/settings">
-        <button>Settings</button>
-        </router-link>
-
-        <button>Sign Out</button>
-    </div>
-    
     <div id="cal"> 
       <h1>My Calendar</h1>
         <calendar-view
@@ -26,12 +8,12 @@
           :display-period-uom="month"
           @click-item="onClickEvent(calendarItem, windowEvent)"
 		>
-			<calendar-view-header
-				slot="header"
-				slot-scope="t"
-				:header-props="t.headerProps"
-				@input="setShowDate"
-			/>
+          <calendar-view-header
+              slot="header"
+              slot-scope="t"
+              :header-props="t.headerProps"
+              @input="setShowDate"
+          />
 		</calendar-view>
 
       <div id="risk">
@@ -49,10 +31,10 @@
 <script>
  import { CalendarView, CalendarViewHeader } from "vue-simple-calendar"
 // import CalendarView from './CalendarView.vue'
-// import CalendarViewHeader from './CalendarViewHeader.vue'
+//import CalendarViewHeader from './CalendarViewHeader.vue'
 
 export default {
-  name: "CalendarDemoApp",
+  name: "RiskAssessments",
   components: {
 		CalendarView,
 		CalendarViewHeader,
@@ -106,65 +88,20 @@ export default {
 <style scoped>
 #container {
   vertical-align: top;
-}
-.tab {
-  display: inline-block;
-  border: 1px solid rgb(32,52,79);
-  background-color: rgb(32,52,79);
-  width: 20%;
-  height: 1000px;
-  margin-right: 30px;
-  vertical-align: top;
-  padding-bottom: 20px;
-}
-.tab h1 {
-    color: white;
-    margin: 35px
-}
-.tab button {
-  display: block;
-  background-color: inherit;
-  color: white;
-  padding: 15px;
-  padding-left: 30px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size:18px
-}
-.tab button:hover {
-  background-color:rgb(117, 155, 204);
-}
-.tab button:focus {
-  background-color: rgb(117, 155, 204);
-}
-.tab button:active {
-  background-color: rgb(117, 155, 204);
+  display:inline-block;
+  width:1000px;
 }
 
-.content {
-  display: inline-block;
-  text-align: left;
-  vertical-align: top;
-  padding: 20px;
-    /* float: left;
-    padding-left: 50px;
-    text-align: left; */
-    
-}
 #cal {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		color: #2c3e50;
 		height: 67vh;
-		width: 90vw;
+		width: 100%;
     display: inline-block;
     text-align: left;
     vertical-align: top;
 		/* margin-left: auto;
-		margin-right: auto; */  
+		margin-right: auto; */
 }
 #end {
     background-color: rgb(32,52,79);
