@@ -15,7 +15,7 @@
         <button>Settings</button>
         </router-link>
 
-        <button>Sign Out</button>
+        <button @click="$emit('toggleSignOut')">Sign Out</button>
     </div>
     <div class="content">
       <router-view></router-view>

@@ -26,7 +26,9 @@ export default {
 </script>
 
 <style scoped>
-
+label {
+  padding-right:5px;
+}
 select {
     float: right;
     clear: both;
