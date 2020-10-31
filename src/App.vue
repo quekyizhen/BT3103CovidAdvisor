@@ -3,7 +3,7 @@
     <div id="header">
       <h1><router-link to="/" exact>Covid Advisor</router-link></h1>
 
-      <div v-if="signedin" class="link"><router-link to="/profile" exact>My Profile</router-link></div>
+      <div v-if="signedIn" class="link"><router-link to="/profile" exact>My Profile</router-link></div>
       <div v-else><div class="link"><router-link to="/login" exact>Login/Register</router-link></div></div>
       <div class="link"><router-link to="/symptoms" exact>Check your symptoms here</router-link></div>
       <div class="link"><router-link to="/stats" exact>Statistics</router-link></div>
@@ -12,8 +12,7 @@
       <div class="titletext">Welcome, {{username}}.</div>
     </div>
     <div style="width:100%;">
-      <router-view></router-view>
-      <!--symptoms-page></symptoms-page-->
+      <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut"></router-view>
     </div>
     <div id="copyright">&#169; BT3103 Octopus 2020</div>
   </div>
@@ -21,19 +20,28 @@
 
 <script>
 
-//import SymptomsPage from './components/SymptomsPage.vue'
-
 export default {
   name: 'App',
   components: {
-    //'symptoms-page': SymptomsPage
   },
   data() {
     return {
       username: "User",
-      signedin: true
+      signedIn: false
     }
-  }
+  },
+  methods: {
+    toggleSignIn(username) {
+      this.signedIn = true;
+      this.username = username;
+    },
+    toggleSignOut() {
+      this.signedIn = false;
+      this.username = 'User';
+      this.$router.push("/");
+    }
+  },
+
 }
 </script>
 
@@ -46,8 +54,8 @@ export default {
 }
 
 html, body {
-  margin: 0px !important;
-  padding: 0px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 a {
@@ -59,9 +67,6 @@ h1 {
   font-size:25px;
 }
 
-#default {
-  overflow:auto;
-}
 
 .titletext {
   font-size:70px;
@@ -69,10 +74,6 @@ h1 {
   margin: 100px 20% 50px 50px;
   width:400px;
   text-align:right;
-}
-
-#default {
-  background:white;
 }
 
 #header {
@@ -84,6 +85,7 @@ h1 {
   font-size:15px;
   overflow: auto;
   position: sticky;
+  top:0;
 }
 
 #header h1 {
@@ -115,7 +117,7 @@ h1 {
   background: url(https://static.tumblr.com/c1oapfr/2ysqip0tr/artboard_1.png) bottom;
   background-size: 100%;
   width:100%;
-  height: 400px;
+  height: 450px;
 }
 
 #copyright {
@@ -128,5 +130,7 @@ h1 {
   font-size:11px;
   line-height:50px;
 }
+
+
 </style>
 
