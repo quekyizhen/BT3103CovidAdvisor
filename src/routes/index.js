@@ -7,6 +7,7 @@ import SymptomsPage from "@/components/SymptomsPage";
 import Profile from "@/components/Profile";
 import RiskAssessments from "@/components/RiskAssessments";
 import Settings from "@/components/Settings";
+import Account from "@/components/Account";
 
 Vue.use(Router)
 
@@ -14,7 +15,7 @@ export default new Router({
     routes: [{ path: '/symptoms', name: "Symptoms",component: SymptomsPage},
         { path: '/profile', name: "Profile",component: Profile,
             children: [
-                {path:'', component:Profile},
+                {path:'', component:Account},
                 {path:'risk',component:RiskAssessments},
                 {path:'settings',component:Settings}
             ]

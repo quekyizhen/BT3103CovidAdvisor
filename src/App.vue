@@ -42,8 +42,8 @@ export default {
 }
 
 html, body {
-  margin: 0px !important;
-  padding: 0px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 a {
@@ -55,9 +55,6 @@ h1 {
   font-size:25px;
 }
 
-#default {
-  overflow:auto;
-}
 
 .titletext {
   font-size:70px;
@@ -65,10 +62,6 @@ h1 {
   margin: 100px 20% 50px 50px;
   width:400px;
   text-align:right;
-}
-
-#default {
-  background:white;
 }
 
 #header {
@@ -80,6 +73,7 @@ h1 {
   font-size:15px;
   overflow: auto;
   position: sticky;
+  top:0;
 }
 
 #header h1 {
@@ -111,7 +105,7 @@ h1 {
   background: url(https://static.tumblr.com/c1oapfr/2ysqip0tr/artboard_1.png) bottom;
   background-size: 100%;
   width:100%;
-  height: 400px;
+  height: 450px;
 }
 
 #copyright {
