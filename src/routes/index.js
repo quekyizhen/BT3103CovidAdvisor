@@ -8,11 +8,14 @@ import Profile from "@/components/Profile";
 import RiskAssessments from "@/components/RiskAssessments";
 import Settings from "@/components/Settings";
 import Account from "@/components/Account";
+import SymptomsPage2 from "@/components/SymptomsPage2";
 
 Vue.use(Router)
 
 export default new Router({
-    routes: [{ path: '/symptoms', name: "Symptoms",component: SymptomsPage},
+    routes: [
+        { path: '/symptoms', name: "Symptoms",component: SymptomsPage},
+        { path: '/symptoms2', name: "Symptoms2",component: SymptomsPage2},
         { path: '/profile', name: "Profile",component: Profile,
             children: [
                 {path:'', component:Account},
