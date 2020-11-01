@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Gender from '../components/Doughnut_Gender.vue'
-import Nationality from '../components/Doughnut_Nationality.vue'
-
 
 Vue.use(VueRouter)
 
