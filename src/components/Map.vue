@@ -4,13 +4,14 @@
             <h1>Places that Infectious Patients visited!</h1>
         </div>
         
-
+<!-- This is the Map below the above text!  -->
         <gmap-map
             :center="center"
             :zoom="zoom"
             style="width:900px; height:450px; margin: 16px auto;"
             ref="map"
         >
+        <!-- There are 3 different marker denoting the 3 diff icons (green,red,yellow) -->
         <gmap-marker
             :key="index"
             v-for="(location, index) in locations1"
@@ -35,12 +36,15 @@
             @click="openInfoWindow(location);"
             icon="http://maps.google.com/mapfiles/ms/icons/red-dot.png"
         />
+
+        <!-- The Pop-up when you click on the icon! -->
         <gmap-info-window
             v-if="selectedLocation !== null"
             :position="{ lat: selectedLocation.lat, lng: selectedLocation.lng }"
             :opened="infoBoxOpen"
             @closeclick="infoBoxOpen = false;"
         >
+        <!-- info from the data -->
             <div class="infoWindow" style="width: 270px; height: 120px;">
                 <p class="infoW-location" style="text-align:center">{{ selectedLocation.name }}</p>
                 <p class="infoW-shop" style="text-align:left"> - {{ selectedLocation.shop }}</p>
@@ -145,6 +149,7 @@
             ]
             }
         ),
+        
         methods: {
             openInfoWindow(location) {
                 console.log(location);
@@ -156,6 +161,7 @@
             }
         },
     }
+    
 </script>
 <style scoped>
 .vue-map-container,
@@ -163,7 +169,7 @@
     width: 100%;
     height: 100%;
 }
-
+/* labelled properly under infowindow what css apply to which! */
 .infoW-location {
   font-family:Montserrat;
   line-height: 1em;
