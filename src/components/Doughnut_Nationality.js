@@ -55,12 +55,12 @@ export default {
   methods: {
     getData() {
       // was initially used to count total number to get percentage //
-      let totalcount = 0;
+      //let totalcount = 0;
       
       let currLength = Object.keys(parsed['nationality']).length;
       for (let i = 0; i < currLength; i++) {      
         // was initially used to count total number to get percentage //
-        totalcount ++;
+        //totalcount ++;
         if (!this.countries.includes(parsed['nationality'][i])) {
           this.countries.push(parsed['nationality'][i]);
           this.count.push(1);
