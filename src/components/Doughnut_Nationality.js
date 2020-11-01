@@ -33,11 +33,10 @@ export default {
         tooltips: {
             callbacks: {
                 label: function(tooltipItem, data) {
-        	    var dataset = data.datasets[tooltipItem.datasetIndex];
-                var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                var total = data.datasets[tooltipItem.datasetIndex].data.reduce(function(previousValue, currentValue) {
                 return previousValue + currentValue;
             });
-            var currentValue = dataset.data[tooltipItem.index];
+            var currentValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
             var percentage = Math.round((currentValue/total) * 10000)/100;         
             return percentage + "%";
         }
