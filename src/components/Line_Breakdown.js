@@ -21,7 +21,7 @@ export default {
     options: {
         title: {
           display: true,
-          text: "Proportion of COVID-19 Cases by Nationality",
+          text: "Graph of Daily COVID-19 Cases in Singapore",
         },
         responsive: true,
         scales: {
