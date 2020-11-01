@@ -1,9 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
+
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/Line',
+    name: 'Line',
+    component: () => import(/* webpackChunkName: "about" */ '../components/Line_Breakdown.vue')
+  },
   {
     path: '/Gender',
     name: 'Gender',
