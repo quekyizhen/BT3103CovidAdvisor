@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Gender from '../components/Doughnut_Gender.vue'
-import Nationality from '../components/Doughnut_Nationality.vue'
+
 
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/Line',
+    name: 'Line',
+    component: () => import(/* webpackChunkName: "about" */ '../components/Line_Breakdown.vue')
+  },
   {
     path: '/Gender',
     name: 'Gender',
@@ -23,7 +27,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../componenets/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/About.vue')
   }
 ]
 
