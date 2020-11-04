@@ -142,7 +142,7 @@ export default {
 .container {
     text-align: left;
     display: inline-block;
-    padding: 40px;
+    padding: 60px;
 }
 .list {
   text-align: left;

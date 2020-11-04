@@ -38,6 +38,7 @@ components: {
   vertical-align:top;
   text-align:justify;
   margin:30px;
+  font-size: 20px;
 }
 
 #twitter {

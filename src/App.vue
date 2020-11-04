@@ -7,6 +7,7 @@
       <div v-else><div class="link"><router-link to="/login" exact>Login/Register</router-link></div></div>
       <div class="link"><router-link to="/symptoms" exact>Check your symptoms here</router-link></div>
       <div class="link"><router-link to="/stats" exact>Statistics</router-link></div>
+      <div class="link"><router-link to="/map" exact>Map</router-link></div>
     </div>
     <div id="photobar">
       <div class="titletext">Welcome, {{username}}.</div>
@@ -121,18 +122,18 @@ h1 {
   background: url(https://static.tumblr.com/c1oapfr/2ysqip0tr/artboard_1.png) bottom;
   background-size: 100%;
   width:100%;
-  height: 450px;
+  height: 480px;
 }
 
 #copyright {
   width:calc(100% - 100px);
-  height:50px;
+  height:10px;
   padding:50px;
   background:#20344a;
   color:white;
   font-weight:lighter;
-  font-size:11px;
-  line-height:50px;
+  font-size:15px;
+  line-height:10px;
   margin-bottom:-70px
 }
 
