@@ -6,6 +6,9 @@
   <label for="password">Password:</label>
   <input type="password" v-model="password" value="password"><br>
   <button @click="$emit('toggleSignIn', username)">Sign In</button>
+  <hr>
+  New to the covid advisor? <a><router-link to="/register">Register here</router-link></a> or
+  <a><router-link to="/symptoms">continue anonymously</router-link></a>.
 </div>
 </template>
 
@@ -49,5 +52,16 @@ button {
   margin: 8px 4px;
   cursor: pointer;
   border-radius: 8px;
+}
+a {
+  color:#2c3e50;
+  font-weight:bold;
+  transition:0.5s;
+}
+
+a:hover {
+  color: #456a9b;
+  text-decoration: underline;
+  transition:0.5s;
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
   <div>
+  <div id="cloud">
+
       <wordcloud
       :data="defaultWords"
       nameKey="name"
@@ -8,6 +10,8 @@
       :showTooltip="false"
       :wordClick="wordClickHandler">
       </wordcloud>
+  </div>
+  <div id="buffer"></div>
   </div>
 </template>
 
@@ -69,5 +73,16 @@ export default {
 </script>
 
 <style scoped>
-
+#cloud {
+  position:absolute;
+  width:100%;
+  height:1000px;
+  overflow:hidden;
+  z-index:-999;
+  left:0;
+}
+#buffer {
+  width:100%;
+  height:400px;
+}
 </style>

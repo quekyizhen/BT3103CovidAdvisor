@@ -14,6 +14,9 @@
     <div style="width:100%;">
       <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut"></router-view>
     </div>
+
+
+
     <div id="copyright">&#169; BT3103 Octopus 2020</div>
   </div>
 </template>
@@ -106,7 +109,7 @@ h1 {
   font-weight: bold;
   line-height: 100px;
   transition:0.5s;
-  color:white
+  color:white;
 }
 
 .link a:hover {
@@ -130,6 +133,21 @@ h1 {
   font-weight:lighter;
   font-size:11px;
   line-height:50px;
+  margin-bottom:-70px
+}
+
+#end {
+  background-color: rgb(32,52,79);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 4px;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 
