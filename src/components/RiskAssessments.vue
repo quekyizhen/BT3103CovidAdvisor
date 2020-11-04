@@ -1,31 +1,31 @@
 <template>
 <div id="container">
-    <div id="cal"> 
-      <h1>My Calendar</h1>
-        <calendar-view
-          :show-date="showDate"
-          :items="risks"
-          :display-period-uom="month"
-          @click-item="onClickEvent(calendarItem, windowEvent)"
-		>
-          <calendar-view-header
-              slot="header"
-              slot-scope="t"
-              :header-props="t.headerProps"
-              @input="setShowDate"
-          />
-		</calendar-view>
+  <div id="cal">
+    <h1>My Calendar</h1>
+    <calendar-view
+        :show-date="showDate"
+        :items="risks"
+        :display-period-uom="month"
+        @click-item="onClickEvent(calendarItem, windowEvent)"
+    >
+      <calendar-view-header
+          slot="header"
+          slot-scope="t"
+          :header-props="t.headerProps"
+          @input="setShowDate"
+      />
+    </calendar-view>
 
-      <div id="risk">
-        <h2 v-if="isHidden == false">Your symptoms recorded on this day were:</h2>
-      </div><br>
+  </div>
+  <div id="buffer"></div>
+  <div id="risk">
+    <h2 v-if="isHidden == false">Your symptoms recorded on this day were:</h2>
+  </div>
 
-      <h2>Clear past risk assessments</h2>
-      <h4>By clicking the button below all your past risk assessments will be permanently deleted</h4>
-      <button id="end" @click="clearAssessments">Clear Risk Assessments</button>
- 
-    </div>
- </div>
+  <h2>Clear past risk assessments</h2>
+  <h4>By clicking the button below all your past risk assessments will be permanently deleted</h4>
+  <button id="end" @click="clearAssessments">Clear Risk Assessments</button>
+</div>
 </template>
 
 <script>
@@ -86,20 +86,19 @@ export default {
 }
 </script>
 <style scoped>
-#container {
-  vertical-align: top;
-  display:inline-block;
-  width:1000px;
-}
+
 
 #cal {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		color: #2c3e50;
-		height: 67vh;
-		width: 100%;
+		height: 60vh;
+  width:calc(100% - 380px);
     display: inline-block;
     text-align: left;
     vertical-align: top;
+  position:absolute;
+  z-index:-999;
+
 		/* margin-left: auto;
 		margin-right: auto; */
 }
@@ -115,6 +114,11 @@ export default {
     margin: 8px 4px;
     cursor: pointer;
     border-radius: 8px;
+}
+
+#buffer {
+  width:100%;
+  height:70vh;
 }
 
 </style>

@@ -9,6 +9,7 @@ import RiskAssessments from "@/components/RiskAssessments";
 import Settings from "@/components/Settings";
 import Account from "@/components/Account";
 import SymptomsPage2 from "@/components/SymptomsPage2";
+import Register from "@/components/Register";
 
 Vue.use(Router)
 
@@ -25,5 +26,8 @@ export default new Router({
         },
     { path: '/stats', name: "Stats",component: Stats},
     { path: '/login', component: Login},
-    { path: '/', name: "Default", component: Default}]});
+    { path: '/', name: "Default", component: Default},
+        { path: '/register', name: "Register", component: Register},
+    ]
+});
 
