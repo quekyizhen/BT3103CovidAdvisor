@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="title"> 
         <div>
             <h1>Places that Infectious Patients visited!</h1>
         </div>
@@ -164,6 +164,10 @@
     
 </script>
 <style scoped>
+
+#title {
+    text-align: center;
+}
 .vue-map-container,
 .vue-map-container .vue-map {
     width: 100%;
