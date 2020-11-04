@@ -7,6 +7,7 @@
       <div v-else><div class="link"><router-link to="/login" exact>Login/Register</router-link></div></div>
       <div class="link"><router-link to="/symptoms" exact>Check your symptoms here</router-link></div>
       <div class="link"><router-link to="/stats" exact>Statistics</router-link></div>
+      <div class="link"><router-link to="/map" exact>Map</router-link></div>
     </div>
     <div id="photobar">
       <div class="titletext">Welcome, {{username}}.</div>

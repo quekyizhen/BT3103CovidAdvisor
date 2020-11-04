@@ -8,7 +8,13 @@
       valueKey="value"
       :color="myColors"
       :showTooltip="false"
-      :wordClick="wordClickHandler">
+      :wordClick="wordClickHandler"
+      :font="Arial"
+      :rotate="{from: -20, to: 20, numOfOrientation: 7}"
+      :margin="{top: 15, right: 100, bottom: 15, left: 100}"
+      :spiral="rectangular"
+      :fontSize=[20,70]
+      >
       </wordcloud>
   </div>
   <div id="buffer"></div>
@@ -32,39 +38,39 @@ export default {
       myColors: ['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef'],
       defaultWords: [{
           "name": "Fever",
-          "value": 40
+          "value": 50
         },
         {
           "name": "Shortness of Breath",
-          "value": 40
+          "value": 50
         },
         {
           "name": "Cough",
-          "value": 30
+          "value": 40
         },
         {
           "name": "Fatigue",
-          "value": 30
+          "value": 40
         },
         {
           "name": "Sore Throat",
-          "value": 20
+          "value": 30
         },
         {
           "name": "Loss of Taste/Smell",
-          "value": 15
+          "value": 27
         },
         {
           "name": "Runny Nose",
-          "value": 15
+          "value": 28
         },
         {
           "name": "Headache",
-          "value": 18
+          "value": 29
         }, 
         {
           "name": "Chills or Rigors",
-          "value": 20
+          "value": 30
         }
       ]
     }
