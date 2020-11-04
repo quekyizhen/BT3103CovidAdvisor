@@ -1,23 +1,5 @@
 <template>
 <div id="container">
-    <div class="tab">
-        <h1>My Profile</h1> <br>
-
-        <router-link style="text-decoration: none;" to="/">
-        <button>Profile Info</button>
-        </router-link>
-
-        <router-link style="text-decoration: none;" to="/risk">
-        <button>Risk Assessments</button>
-        </router-link>
-        
-        <router-link style="text-decoration: none;" to="/settings">
-        <button>Settings</button>
-        </router-link>
-
-        <button>Sign Out</button>
-    </div>
-    <div class="content">
         <h1>Preferences:</h1>
 
         <label for="name">Language:
@@ -38,7 +20,6 @@
         <button id="end">Delete My Account</button>
 
     </div>
-</div>
 </template>
 
 <script>
