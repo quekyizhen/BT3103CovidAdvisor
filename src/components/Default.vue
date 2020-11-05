@@ -10,16 +10,20 @@
     <br><br><br>
     Simply follow the steps below to take the assessment:
     <p id="pointers"> 
-      1. Enter your symptoms information<br><br>
-      2. Enter your brief medical history<br><br>
+      1. Enter your symptoms information
+    </p>
+    <p id="pointers">
+      2. Enter your brief medical history
+    </p>
+    <p id="pointers">
       3. Done! Your assessment results will reveal the likelihood of contracting COVID-19 and advice you on the next steps
     </p>
       <br><br>
 
       <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms">Start assessment now</router-link></button>
     </div>
-
     <div id="twitter">
+      <h1>Stay updated with the latest tweets from WHO</h1>
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
 
@@ -51,6 +55,7 @@ components: {
 }
 #pointers {
   margin-left:35px;
+  margin-bottom: 3px;
 }
 #textbox {
   display:inline-block;

@@ -62,7 +62,7 @@
       </div>
     </transition>
     <div class="matches" v-if='notSamePasswords'>
-      <p>Passwords don't match</p>
+      <p>New passwords don't match</p>
     </div>
     <br><br><br>
   </div>
@@ -139,5 +139,21 @@ export default {
 </script>
 
 <style scoped>
-
+input {
+    float: right;
+    margin-left: 100px;
+    width: 250px
+}
+select {
+    float: right;
+    clear: both;
+    width: 100px
+}
+.hints {
+	max-width:300px;
+	padding:1em;
+	background:whitesmoke;
+	margin: 1.5em 0;
+	font-size: .9em;
+}
 </style>
