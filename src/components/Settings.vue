@@ -1,5 +1,5 @@
 <template>
-<div id="container">
+<div id="fitb">
         <h1>Preferences:</h1>
 
         <label for="name">Language:
@@ -104,4 +104,6 @@ select {
     cursor: pointer;
     border-radius: 8px;
 }
+
+
 </style>

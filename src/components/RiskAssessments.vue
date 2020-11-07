@@ -1,5 +1,5 @@
 <template>
-<div id="container">
+<div>
   <div id="cal">
     <h1>My Calendar</h1>
     <calendar-view
@@ -97,7 +97,7 @@ export default {
     text-align: left;
     vertical-align: top;
   position:absolute;
-  z-index:-999;
+  z-index:0;
 
 		/* margin-left: auto;
 		margin-right: auto; */
