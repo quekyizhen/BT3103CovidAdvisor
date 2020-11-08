@@ -31,15 +31,19 @@ export default {
 
 <style scoped>
 
+#container {
+  background: #20344a;
+  display: flex;
+}
 #tab {
   display: inline-block;
   border: 1px solid rgb(32,52,79);
   background-color: rgb(32,52,79);
   width: 20%;
-  height:1000px;
   margin-right: 30px;
   vertical-align: top;
   padding-bottom: 20px;
+  padding-right: 0;
 }
 #tab h1 {
     color: white;
@@ -73,7 +77,10 @@ export default {
   display: inline-block;
   text-align: left;
   vertical-align: top;
-  padding: 20px;
+  padding: 40px;
+  background:white;
+  overflow:auto;
+  flex-grow: 1;
     /* float: left;
     padding-left: 50px;
     text-align: left; */
@@ -112,4 +119,8 @@ select {
     display: inline-block;
     text-align: right;
 } */
+
+#fitb {
+  width:500px
+}
 </style>
