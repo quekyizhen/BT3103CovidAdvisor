@@ -12,7 +12,7 @@
     <div id="photobar">
       <div class="titletext">Welcome, {{username}}.</div>
     </div>
-    <div style="width:100%;">
+    <div style="width:100%">
       <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut"></router-view>
     </div>
 
@@ -91,6 +91,7 @@ h1 {
   overflow: auto;
   position: sticky;
   top:0;
+  z-index:999;
 }
 
 #header h1 {
@@ -134,7 +135,7 @@ h1 {
   font-weight:lighter;
   font-size:15px;
   line-height:10px;
-  margin-bottom:-70px
+  bottom:0;
 }
 
 #end {

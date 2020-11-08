@@ -9,13 +9,9 @@
       Register an account to keep track of your symptoms and more or simply take the assessment now — it's fast, free and anonymous.
     <br><br><br>
     Simply follow the steps below to take the assessment:
-    <p id="pointers"> 
+    <p class="pointers">
       1. Enter your symptoms information
-    </p>
-    <p id="pointers">
       2. Enter your brief medical history
-    </p>
-    <p id="pointers">
       3. Done! Your assessment results will reveal the likelihood of contracting COVID-19 and advice you on the next steps
     </p>
       <br><br>
