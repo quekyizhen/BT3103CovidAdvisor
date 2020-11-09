@@ -5,10 +5,12 @@
 
         <h2 class="list">Gender</h2>
         <p class="symps">
+
         <input type="radio" id="male" value="Male" v-model="gender">
         <label for="male">Male</label> <br>
         <input type="radio" id="female" value="Female" v-model="gender">
         <label for="no">Female</label>
+
         </p>
 
         <h2 class="list">Age</h2>
@@ -129,5 +131,4 @@ p.symps {
 .wrapper {
     text-align: center;
 }
-
 </style>
