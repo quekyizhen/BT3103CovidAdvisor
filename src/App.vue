@@ -5,18 +5,17 @@
 
       <div v-if="signedIn" class="link"><router-link to="/profile" exact>My Profile</router-link></div>
       <div v-else><div class="link"><router-link to="/login" exact>Login/Register</router-link></div></div>
-      <div class="link"><router-link to="/symptoms" exact>Check your symptoms here</router-link></div>
       <div class="link"><router-link to="/stats" exact>Statistics</router-link></div>
       <div class="link"><router-link to="/map" exact>Map</router-link></div>
+      <div class="link"><router-link to="/symptoms" exact>Track Symptoms</router-link></div>
+
     </div>
     <div id="photobar">
       <div class="titletext">Welcome, {{username}}.</div>
     </div>
-    <div style="width:100%;">
+    <div style="width:100%">
       <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut"></router-view>
     </div>
-
-
 
     <div id="copyright">&#169; BT3103 Octopus 2020</div>
   </div>
@@ -91,6 +90,7 @@ h1 {
   overflow: auto;
   position: sticky;
   top:0;
+  z-index:999;
 }
 
 #header h1 {
@@ -134,7 +134,7 @@ h1 {
   font-weight:lighter;
   font-size:15px;
   line-height:10px;
-  margin-bottom:-70px
+  bottom:0;
 }
 
 #end {
