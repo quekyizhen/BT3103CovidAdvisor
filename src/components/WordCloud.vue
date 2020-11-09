@@ -10,7 +10,7 @@
       :showTooltip="false"
       :wordClick="wordClickHandler"
       :font="Arial"
-      :rotate="{from: -20, to: 20, numOfOrientation: 7}"
+      :rotate="{from: 0, to: 0}"
       :margin="{top: 15, right: 100, bottom: 15, left: 100}"
       :spiral="rectangular"
       :fontSize=[20,70]

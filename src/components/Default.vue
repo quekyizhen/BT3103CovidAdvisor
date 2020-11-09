@@ -11,17 +11,30 @@
     Simply follow the steps below to take the assessment:
     <p class="pointers">
       1. Enter your symptoms information
-      2. Enter your brief medical history
+    </p>
+    <p class="pointers">
+      2. Enter your brief medical history 
+    </p>
+    <p class="pointers">
       3. Done! Your assessment results will reveal the likelihood of contracting COVID-19 and advice you on the next steps
     </p>
       <br><br>
 
       <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms">Start assessment now</router-link></button>
     </div>
+    <h1 id="title">Stay updated with the latest tweets from WHO:</h1>
     <div id="twitter">
-      <h1>Stay updated with the latest tweets from WHO</h1>
+      <!-- <h1 id="title">Stay updated with the latest tweets from WHO</h1> -->
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
+      <h1 id="title2">For more information and latest updates visit the links below:</h1>
+      <a id="news" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
+      <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
+      </a>
+      <a id="news2" href="https://www.moh.gov.sg/covid-19">
+      <img border="0" src="@/assets/moh.jpg" width="105" height="55">
+      </a>
+    
 
   </div>
 </template>
@@ -51,7 +64,6 @@ components: {
 }
 #pointers {
   margin-left:35px;
-  margin-bottom: 3px;
 }
 #textbox {
   display:inline-block;
@@ -62,12 +74,52 @@ components: {
   font-size: 20px;
 }
 
-#twitter {
+/* #twitter {
   width:350px;
   padding:20px;
   display:inline-block;
   height:425px;
   overflow:auto;
   vertical-align:top;
+} */
+/* #title {
+  width:350px;
+  padding:10px;
+} */
+/* #news {
+  margin-left: 20px;
+} */
+
+#twitter {
+  width:350px;
+  height:425px;
+  overflow:auto;
+  position: absolute;
+  right: 35px;
+  top: 750px
+}
+#title {
+  position: absolute;
+  right: 35px;
+  top: 650px;
+  width:350px; 
+}
+#title2 {
+  position: absolute;
+  right: 35px;
+  top: 1200px;
+  width:350px; 
+}
+
+#news {
+  position: absolute;
+  right: 280px;
+  top: 1340px;
+}
+#news2 {
+  position: absolute;
+  right: 140px;
+  top: 1340px;
 }
 </style>
+
