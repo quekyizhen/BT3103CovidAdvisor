@@ -7,6 +7,16 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/Bar',
+    name: 'Bar',
+    component: () => import(/* webpackChunkName: "about" */ '../components/AgeBarChart.vue')
+  },
+  {
+    path: '/Pie',
+    name: 'Pie',
+    component: () => import(/* webpackChunkName: "about" */ '../components/Pie_API.vue')
+  },
+  {
     path: '/Line',
     name: 'Line',
     component: () => import(/* webpackChunkName: "about" */ '../components/Line_Breakdown.vue')
