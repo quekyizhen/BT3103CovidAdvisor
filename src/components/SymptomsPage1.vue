@@ -93,30 +93,30 @@
         <h2 class="list">Have you travelled in the past 2 weeks?</h2>
         <p class="symps">
 
-        <label class="container2" for="yes">Yes
+        <label class="container">Yes
             <input type="radio" name="radio" checked="checked" id="yes" value="Yes" v-model="travelled">
-            <span class="checkmark2"></span>
+            <span class="checkmark"></span>
         </label>
 
-        <label class="container2" for="yes">No
-            <input type="radio" name="radio" checked="checked" id="no" value="No" v-model="travelled">
-            <span class="checkmark2"></span>
+        <label class="container">No
+            <input type="radio" name="radio" id="no" value="No" v-model="travelled">
+            <span class="checkmark"></span>
         </label>
 
         </p>
 
         <h2 class="list">Have you been in contact with a COVID-19 patient in the past 2 weeks?</h2>
         <p class="symps">
-          <label class="container2" for="yes">Yes
+          <label class="container2">Yes
             <input type="radio" name="radio2" checked="checked" id="yes1" value="Yes" v-model="contact">
             <span class="checkmark2"></span>
         </label>
 
-        <label class="container2" for="yes">No
-            <input type="radio" name="radio2" id="no1" value="No" v-model="contact">
+        <label class="container2">No
+            <input type="radio" name="radio2"  value="No" id = "no1" v-model="contact">
             <span class="checkmark2"></span>
         </label>
-
+        </p>
         <div class="wrapper">
             <router-link style="text-decoration: none;" to="/symptoms2">
                 <button type="button">Next</button>
@@ -246,36 +246,39 @@ p.symps {
   transform: rotate(45deg);
 }
 
-/* The container */
+
+
+/* Customize the label (the container) */
 .container2 {
   display: block;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-/* Hide the browser's default radio button */
+/* Hide the browser's default checkbox */
 .container2 input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
-/* Create a custom radio button */
+/* Create a custom checkbox */
 .checkmark2 {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
-  border-radius: 50%;
 }
 
 /* On mouse-over, add a grey background color */
@@ -283,31 +286,35 @@ p.symps {
   background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
+/* When the checkbox is checked, add a blue background */
 .container2 input:checked ~ .checkmark2 {
   background-color: #2196F3;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
+/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark2:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the indicator (dot/circle) when checked */
+/* Show the checkmark when checked */
 .container2 input:checked ~ .checkmark2:after {
   display: block;
 }
 
-/* Style the indicator (dot/circle) */
+/* Style the checkmark/indicator */
 .container2 .checkmark2:after {
-  top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
+
 
 </style>
