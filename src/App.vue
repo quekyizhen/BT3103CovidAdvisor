@@ -7,7 +7,8 @@
       <div v-else><div class="link"><router-link to="/login" exact>Login/Register</router-link></div></div>
       <div class="link"><router-link to="/stats" exact>Statistics</router-link></div>
       <div class="link"><router-link to="/map" exact>Map</router-link></div>
-      <div class="link"><router-link to="/symptoms" exact>Track Symptoms</router-link></div>
+      <div v-if="!signedIn" class="link"><router-link to="/symptoms1" exact>Track Symptoms</router-link></div>
+      <div v-else class="link"><router-link to="/symptoms" exact>Track Symptoms</router-link></div>
 
     </div>
     <div id="photobar">
@@ -22,10 +23,10 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
   components: {
+
   },
   data() {
     return {

@@ -118,28 +118,18 @@
         </label>
 
         <div class="wrapper">
-            <button type="button" @click="showModal">Submit </button>
-            <modal v-bind:symptomsSelected="symptomsSelected" v-bind:riskSelected="riskSelected" v-bind:contact="contact" v-bind:age="age" v-show="isModalVisible" @close="closeModal"/>
+            <router-link style="text-decoration: none;" to="/symptoms2">
+                <button type="button">Next</button>
+            </router-link>
         </div>
-
-
     </div>
 </template>
 
 <script>
 //import Datepicker from 'vuejs-datepicker'
-import ModalWindow from './ModalWindow.vue'
+//import ModalWindow from './ModalWindow.vue'
 
 export default {
-    components: {
-      'modal': ModalWindow,
-    },
-
-    props:{
-      signedIn:{ //passed from App.vue
-        type:Boolean
-      }
-    },
     data() {
         return {
             symptomsSelected: [],
