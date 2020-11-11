@@ -29,7 +29,10 @@
       <label for="email">Email:
         <input type="text" v-model="form.email" value="email" id="email">
       </label> <br><br>
+      <br>
+    </div>
 
+    <br><br>
       <label for="risk factors">Prevailing Risk Factors (Check all applicable): <br>
         <input type="checkbox" value="Cardiac Disease" v-model="riskSelected">
         <label for="Cardiac Disease">Cardiac Disease</label> <br>
@@ -54,10 +57,8 @@
 
         <input type="checkbox" value="Renal Disease" v-model="riskSelected">
         <label for="Renal Disease">Renal Disease</label> <br>
-      </label> <br>
-    </div>
-
-    <br>
+      </label>
+      <br>
 
     <h1>Password:</h1>
     <h4>Please follow the requirements to create your password</h4>
@@ -187,6 +188,8 @@ export default {
             .catch(err => {
               console.log(err.message);
             });
+      } else {
+        console.log(this.errors.length)
       }
     },
 
