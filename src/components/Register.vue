@@ -29,10 +29,35 @@
       <label for="email">Email:
         <input type="text" v-model="form.email" value="email" id="email">
       </label> <br><br>
-      <br>
+
+      <label for="risk factors">Prevailing Risk Factors (Check all applicable): <br>
+        <input type="checkbox" value="Cardiac Disease" v-model="riskSelected">
+        <label for="Cardiac Disease">Cardiac Disease</label> <br>
+
+        <input type="checkbox" value="Diabetes" v-model="riskSelected">
+        <label for="Diabetes">Diabetes</label> <br>
+
+        <input type="checkbox" value="Chronic Lung Disease" v-model="riskSelected">
+        <label for="Chronic Lung Disease">Chronic Lung Disease</label> <br>
+
+        <input type="checkbox" value="Liver Disease" v-model="riskSelected">
+        <label for="Liver Disease">Liver Disease</label> <br>
+
+        <input type="checkbox" value="Immunosupressed" v-model="riskSelected">
+        <label for="Immunosupressed">Immunosupressed</label> <br>
+
+        <input type="checkbox" value="Cancer" v-model="riskSelected">
+        <label for="Cancer">Cancer</label> <br>
+
+        <input type="checkbox" value="Obesity" v-model="riskSelected">
+        <label for="Obesity">Obesity</label> <br>
+
+        <input type="checkbox" value="Renal Disease" v-model="riskSelected">
+        <label for="Renal Disease">Renal Disease</label> <br>
+      </label> <br>
     </div>
 
-    <br><br>
+    <br>
 
     <h1>Password:</h1>
     <h4>Please follow the requirements to create your password</h4>

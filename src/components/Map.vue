@@ -1,9 +1,14 @@
 <template>
-    <div id="title"> 
-        <div>
-            <h1>Places that Infectious Patients visited!</h1>
+    <div> 
+        <div id="title">
+            <h1>Public places that confirmed cases had visited during infectious period</h1>
+            <p>These public places had been visited for more than 30 minutes by the confirmed cases in the community. 
+                Those who had been identified as close contacts of confirmed cases would already have been notified by MOH. 
+                <br>Click <a href="https://wereyouthere.safeentry.gov.sg/"> here</a> to check if you have been to these places.</p>
+                <button type="button" @click="showModal">List</button>
+                <modal-map-list v-show="isModalVisible" @close="closeModal"/>
         </div>
-        
+
 <!-- This is the Map below the above text!  -->
         <gmap-map
             :center="center"
@@ -58,8 +63,14 @@
 </template>
 
 <script>
+import ModalMapList from './ModalMapList.vue'
+
     export default {
+        components: {
+            'modal-map-list': ModalMapList,
+        },
         data: () => ({
+            isModalVisible: false,
             selectedLocation: null,
             infoBoxOpen: false,
             map: null,
@@ -158,6 +169,12 @@
             },
             closeInfoWindow() {
                 this.infoBoxOpen = false;
+            },
+            showModal() {
+                this.isModalVisible = true;
+            },
+                closeModal() {
+                this.isModalVisible = false;
             }
         },
     }
@@ -166,7 +183,8 @@
 <style scoped>
 
 #title {
-    text-align: center;
+    text-align: left;
+    padding-left: 40px;
 }
 .vue-map-container,
 .vue-map-container .vue-map {
@@ -174,6 +192,9 @@
     height: 100%;
 }
 /* labelled properly under infowindow what css apply to which! */
+.infoWindow {
+    text-align: center;
+}
 .infoW-location {
   font-family:Montserrat;
   line-height: 1em;
@@ -214,4 +235,12 @@
   line-height: 1.3em;
   
 }
+a {
+  color: blue;
+}
+a:hover {
+    color:red;
+    text-decoration: underline;
+}
+
 </style>
