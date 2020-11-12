@@ -1,5 +1,7 @@
 import { Line } from 'vue-chartjs'
-import parsed from '../assets/parsed_daily.json';
+import parsed from '../assets/parsed_cul.json';
+
+
 
 export default {
   mixins: [Line],
@@ -10,7 +12,7 @@ export default {
         // Months label on x-axis //
       labels: [],
       datasets: [{
-        label: "Hide",
+          label:'Hide',
         data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)'
@@ -21,9 +23,10 @@ export default {
     options: {
         title: {
           display: true,
-          text: "Graph of Daily COVID-19 Cases in Singapore",
+          text: "Culmulative Number of COVID-19 Cases til Date",
         },
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
           xAxes: [{
             type:'time',
@@ -41,8 +44,8 @@ export default {
           yAxes: [{
             ticks: {
               min: 0,
-              max: 1500,
-              stepSize: 50,
+              max: 60000,
+              stepSize: 5000,
             }
           }]
         }
