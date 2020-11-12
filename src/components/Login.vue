@@ -1,11 +1,18 @@
 <template>
 <div id="login">
   <h1>Sign in</h1>
-  <label for="username">Username:</label>
-  <input type="username" v-model="username" value="username"><br>
+  <form novalidate @submit.prevent="login">
+  <label for="email">Email:</label>
+  <input type="text" v-model="email" value="email" id="email"><br>
   <label for="password">Password:</label>
-  <input type="password" v-model="password" value="password"><br>
-  <button @click="$emit('toggleSignIn', username)">Sign In</button>
+  <input type="password" v-model="password" value="password" id="password"><br>
+  <button type="submit">Sign In</button>
+    <ul v-if="errors.length">
+      <li v-for="error in errors" :key="error">
+        {{error}}
+      </li>
+    </ul>
+  </form>
   <hr>
   New to the covid advisor? <a><router-link to="/register">Register here</router-link></a> or
   <a><router-link to="/symptoms1">continue anonymously</router-link></a>.
@@ -13,17 +20,33 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   name: "Login",
   data() {
     return {
-      username:'',
-      password:''
+      email:'',
+      password:'',
+      errors:[],
+      username:''
     }
   },
   methods: {
-    toggleSignIn() {
-      this.$emit('toggleSignIn', 'username')
+    toggleSignIn(user) {
+      this.$emit('toggleSignIn', user)
+    },
+    login() {
+      this.errors=[]
+      firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(data => {
+            this.toggleSignIn(data.user.displayName)
+            this.$router.push('/')
+          })
+          .catch((error) => {
+            this.errors.push(error.message)
+          });
     }
   }
 }

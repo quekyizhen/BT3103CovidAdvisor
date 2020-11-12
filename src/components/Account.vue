@@ -32,48 +32,28 @@
     <br>
   </div>
 
-  <button id="end">Save Changes</button>
+  <button class="end">Save Changes</button>
 
   <br><br><br>
 
+  <form novalidate @submit.prevent="newPassword">
   <h1>Change Password:</h1>
-  <h4>Please follow the requirements to change your password</h4>
-  <div class="items">
-
-    <label for="name">Current Password:
-      <input :type="passwordFieldType" v-model="cpassword" value="cpassword">
-    </label> <br><br>
-
-    <label for="name">New Password:
-      <input :type="passwordFieldType" v-model="npassword" value="npassword">
-    </label> <br><br>
-
-    <label for="name">Confirm New Password:
-      <input :type="passwordFieldType" v-model.lazy="cnpassword" value="cnpassword">
-    </label> <br><br>
-
-    <button type="password" @click="switchVisibility">show / hide password</button>
+    <label for="resetEmail">Email:
+      <input type="email" v-model="resetEmail" value="resetEmail" id="resetEmail">
+    </label>
     <br><br>
+    <button class="end" type="submit">Send reset email</button>
+  </form>
 
-    <transition name="hint" appear>
-      <div v-if='passwordValidation.errors.length > 0 && !submitted' class='hints'>
-        <h2>Requirements</h2>
-        <p v-for='error in passwordValidation.errors' v-bind:key="error">{{error}}</p>
-      </div>
-    </transition>
-    <div class="matches" v-if='notSamePasswords'>
-      <p>New passwords don't match</p>
-    </div>
-    <br><br><br>
-  </div>
 
-  <button id="end" @click='resetPasswords' v-if='passwordsFilled && !notSamePasswords && passwordValidation.valid'>
+  <button class="end" @click='resetPasswords' v-if='passwordsFilled && !notSamePasswords && passwordValidation.valid'>
     Change My Password
   </button>
 </div>
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   name: "Account",
   data() {
@@ -93,7 +73,8 @@ export default {
       cpassword:'',
       npassword:'',
       cnpassword:'',
-      submitted:false
+      submitted:false,
+      resetEmail:''
     }
   },
   methods: {
@@ -109,6 +90,16 @@ export default {
         this.submitted = false
       }, 2000)
     },
+    newPassword() {
+      firebase
+          .auth()
+          .sendPasswordResetEmail(this.resetEmail)
+          .then(() => {
+            alert('Check your registered email to reset the password!')
+          }).catch((error) => {
+        alert(error)
+      })
+    }
   },
   computed: {
     notSamePasswords () {
