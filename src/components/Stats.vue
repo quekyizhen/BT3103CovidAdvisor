@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>This is the statistics page.</h1>
+  <div id="stats">
+    <h1>COVID-19 STATISTICS</h1>
 
     <h3>Word Cloud Common Symptoms</h3>
     <word-cloud></word-cloud>
@@ -22,8 +22,16 @@ export default {
 </script>
 
 <style scoped>
- 
- h3 {
+
+ h1 {
+   font-size:35px;
    text-align: center;
  }
+ h3 {
+
+ }
+ #stats {
+   padding:50px;
+ }
+
 </style>
