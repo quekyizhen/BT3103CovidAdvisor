@@ -27,16 +27,19 @@ export default {
         // this tooltip is to convert the data and get a % //
         tooltips: {
           callbacks: {
-              label: function(tooltipItem, data) {
-              var total = data.datasets[tooltipItem.datasetIndex].data.reduce(function(previousValue, currentValue) {
-              return previousValue + currentValue;
-          });
-          var currentValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-          var percentage = Math.round((currentValue/total) * 10000)/100;         
-          return percentage + "%";
-        }
-        }
-      }
+            label: function(tooltipItem, data) {
+              var dataset = data.datasets[tooltipItem.datasetIndex];
+              var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+              var total = meta.total;
+              var currentValue = dataset.data[tooltipItem.index];
+              var percentage = parseFloat((currentValue/total*100).toFixed(1));
+              return ' '+ percentage + '%';
+            },
+            title: function(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index];
+            }
+          }
+        }, 
     },
     countries: [],
     count: [],
