@@ -43,7 +43,6 @@ export default {
     toggleSignOut() {
       this.signedIn = false;
       this.username = 'User';
-      this.$router.push("/");
     }
   },
 
@@ -138,7 +137,7 @@ h1 {
   bottom:0;
 }
 
-#end {
+.end {
   background-color: rgb(32,52,79);
   border: none;
   color: white;
