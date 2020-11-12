@@ -5,7 +5,7 @@
 
         <h2 class="list">Symptoms Onset Date:</h2>
         <p class="symps">
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" v-model="date">
         </p>
 
         <h2 class="list">List of Symptoms: (Check all applicable)</h2>
@@ -151,14 +151,15 @@ export default {
             age:'',
             riskSelected: [],
             isModalVisible: false,
+            date:'',
         };
     },
     methods: {
         showModal() {
-        this.isModalVisible = true;
+          this.isModalVisible = true;
         },
         closeModal() {
-        this.isModalVisible = false;
+          this.isModalVisible = false;
         }
     },
 }
