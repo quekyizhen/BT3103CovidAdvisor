@@ -20,7 +20,7 @@
     </p>
       <br><br>
 
-      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms">Start assessment now</router-link></button>
+      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
     </div>
     <h1 id="title">Stay updated with the latest tweets from WHO:</h1>
     <div id="twitter">

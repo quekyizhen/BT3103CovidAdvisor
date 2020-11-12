@@ -8,7 +8,7 @@
   <button @click="$emit('toggleSignIn', username)">Sign In</button>
   <hr>
   New to the covid advisor? <a><router-link to="/register">Register here</router-link></a> or
-  <a><router-link to="/symptoms">continue anonymously</router-link></a>.
+  <a><router-link to="/symptoms1">continue anonymously</router-link></a>.
 </div>
 </template>
 
