@@ -4,18 +4,18 @@
             <h1>Public places that confirmed cases had visited during infectious period</h1>
             <p>These public places had been visited for more than 30 minutes by the confirmed cases in the community. 
                 Those who had been identified as close contacts of confirmed cases would already have been notified by MOH. 
-                <br>Click <a href="https://wereyouthere.safeentry.gov.sg/"> here</a> to check if you have been to these places.</p>
-                <button type="button" @click="showModal">List</button>
-                <modal-map-list v-show="isModalVisible" @close="closeModal"/>
+                <br>Click <a target="_blank" href="https://wereyouthere.safeentry.gov.sg/"> here</a> to check if you have been to these places.</p>
+                
         </div>
-
 <!-- This is the Map below the above text!  -->
-        <gmap-map
+        <gmap-map id="gmap"
             :center="center"
             :zoom="zoom"
             style="width:900px; height:450px; margin: 16px auto;"
             ref="map"
         >
+        <button type="button" id="my-button" @click="showModal">List</button>
+        <modal-map-list v-show="isModalVisible" @close="closeModal"/>
         <!-- There are 3 different marker denoting the 3 diff icons (green,red,yellow) -->
         <gmap-marker
             :key="index"
@@ -181,6 +181,13 @@ import ModalMapList from './ModalMapList.vue'
     
 </script>
 <style scoped>
+#gmap {
+    z-index: -999;
+}
+
+#list {
+    z-index: 999;
+}
 
 #title {
     text-align: left;
@@ -233,7 +240,6 @@ import ModalMapList from './ModalMapList.vue'
 
 .closebutton {
   line-height: 1.3em;
-  
 }
 a {
   color: blue;
@@ -243,4 +249,29 @@ a:hover {
     text-decoration: underline;
 }
 
+#my_button{
+    position:absolute;
+    bottom:2%;
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 11px;
+
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    alignment-baseline:central;
+    width:90%;
+    left:5%;
+    text-align:center;
+    text-decoration:none;
+
+
+    margin:0px auto;}
+
+#my_button:hover{
+    background-color:#3B6EC2;} 
 </style>

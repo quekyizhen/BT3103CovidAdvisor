@@ -3,7 +3,7 @@
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          <h2>List of public places visited by confirmed cases</h2>
+          <h2 class="center">List of public places visited by confirmed cases</h2>
           <button type="button" class="btn-close" @click="close">
             x
           </button>
@@ -84,6 +84,9 @@
 </script>
 
 <style scoped>
+h2.center {
+  text-align: center;
+}
 .modal-backdrop {
   position:fixed;
   left:0;
@@ -98,14 +101,15 @@
 
 .modal {
   position:absolute;
-  z-index:-999;
+  z-index:999;
   background: #FFFFFF;
   box-shadow: 2px 2px 20px 1px;
   overflow-x: auto;
   display: flex;
   flex-direction: column;
-    height: 500px;
-    width: 700px;
+  height: 500px;
+  width: 1000px;
+  text-align: center;
 }
 
 .modal-header,
@@ -142,6 +146,8 @@
 
 table {
   border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
 }
 td, th {
   border: 1px solid #dddddd;

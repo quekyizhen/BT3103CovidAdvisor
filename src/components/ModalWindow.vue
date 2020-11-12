@@ -3,7 +3,7 @@
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          Risk Assessment Result
+          <h2>Risk Assessment Result</h2>
           <button type="button" class="btn-close" @click="close">
             x
           </button>
@@ -14,7 +14,7 @@
         <slot name="body">
           <p v-if="symptomsSelected.length <=2 && contact=='Yes'">
             It is probable that you may be infected with COVID-19. Please seek professional advice from a doctor! 
-            Click <a href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. 
+            Click <a target="_blank" href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. <br><br>
             <iframe width="600" height="400" src="https://data.gov.sg/dataset/chas-clinics/resource/21dace06-c4d1-4128-9424-aba7668050dc/view/5cbf5325-26d2-4e3b-a54d-e20d6d07dcd2" frameBorder="0"> </iframe>
           </p>
           <p v-else-if="symptomsSelected.length <=2 && contact=='No' || symptomsSelected.length <=2 ">
@@ -26,7 +26,7 @@
           </p>
           <p v-else-if=" (symptomsSelected.length >=3 && symptomsSelected.length <=6) && contact=='No' || (symptomsSelected.length >=3 && symptomsSelected.length <=6)">
             It is probable that you may be infected with COVID-19. Please seek professional advice from a doctor! 
-            Click <a href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. 
+            Click <a target="_blank" href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. <br><br>
             <iframe width="600" height="400" src="https://data.gov.sg/dataset/chas-clinics/resource/21dace06-c4d1-4128-9424-aba7668050dc/view/5cbf5325-26d2-4e3b-a54d-e20d6d07dcd2" frameBorder="0"> </iframe>
           </p>
           <p v-else-if="symptomsSelected.length >= 7 && contact =='Yes' || symptomsSelected.length >= 7">
@@ -74,61 +74,69 @@
 </script>
 
 <style scoped>
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .modal {
-    background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-  }
+.modal {
+  background: #FFFFFF;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  .modal-header,
-  .modal-footer {
-    padding: 10px;
-    display: flex;
-  }
+.modal-header,
+.modal-footer {
+  padding: 10px;
+  display: flex;
+}
 
-  .modal-header {
-    color: #DC143C;
-    justify-content: space-between;
-  }
+.modal-header {
+  color: #DC143C;
+  justify-content: space-between;
+}
 
-  .modal-footer {
-    
-    justify-content: flex-end;
-  }
+.modal-footer {
+  justify-content: flex-end;
+}
 
-  .modal-body {
-    position: relative;
-    padding: 20px 10px;
-  }
+.modal-body {
+  position: relative;
+  padding: 20px 10px;
+}
 
-  .btn-close {
-    border: none;
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #535e5b;
-    background: transparent;
-  }
+.btn-close {
+  border: none;
+  font-size: 20px;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #535e5b;
+  background: transparent;
+}
 
-  .btn-red {
-    color: white;
-    background: #DC143C;
-    border: 1px solid #DC143C;
-    border-radius: 2px;
-  }
+.btn-red {
+  color: white;
+  background: #DC143C;
+  border: 1px solid #DC143C;
+  border-radius: 2px;
+}
+
+a {
+  color: blue;
+}
+
+a:hover {
+    color:red;
+    text-decoration: underline;
+}
 </style>
