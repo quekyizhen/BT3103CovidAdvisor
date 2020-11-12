@@ -5,7 +5,7 @@
 
         <h2 class="list">Symptoms Onset Date:</h2>
         <p class="symps">
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" v-model="date">
         </p>
 
         <h2 class="list">List of Symptoms: (Check all applicable)</h2>
@@ -82,7 +82,7 @@
                     </label>
             </div>
       
-        <p class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
+        <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   
@@ -151,14 +151,15 @@ export default {
             age:'',
             riskSelected: [],
             isModalVisible: false,
+            date:'',
         };
     },
     methods: {
         showModal() {
-        this.isModalVisible = true;
+          this.isModalVisible = true;
         },
         closeModal() {
-        this.isModalVisible = false;
+          this.isModalVisible = false;
         }
     },
 }
