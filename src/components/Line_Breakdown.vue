@@ -1,6 +1,6 @@
 <template>
   <div class="chart">
-    <chart></chart>
+    <chart :styles="myStyles"></chart>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ import Chart from "./Line_Breakdown.js";
 export default {
   components: {
     Chart,
+  },
+  computed: {
+    myStyles () {
+      return {height: '600px', width: '1340px'}
+    }
   },
 };
 </script>
