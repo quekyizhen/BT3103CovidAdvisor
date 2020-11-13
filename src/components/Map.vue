@@ -12,7 +12,7 @@
                     <li>see a doctor promptly if you develop symptoms and inform the doctor of your exposure history</li>
                 </ul>
             </p>
-            <button type="button" style="font-size:18px;font-weight:bold;margin:10px;" id="end" @click="onClickEvent()">List of places</button>
+            <button type="button" style="font-size:18px;font-weight:bold;margin:10px;" @click="onClickEvent()">List of places</button>
             <div v-show="showList">
                 <h2>List of public places visited by confirmed cases</h2>
                 <table>
@@ -118,11 +118,11 @@
                 </gmap-map>
             </div>
             <div id="legend-container">
-                <img style="float:left" src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" width="25" height="25" alt="Red Marker Image">
+                <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" width="25" height="25" alt="Red Marker Image">
                 <p>: place visited by confirmed case less than 7 days ago </p>
-                <img style="float:left" src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" width="25" height="25" alt="Yellow Marker Image">
+                <img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" width="25" height="25" alt="Yellow Marker Image">
                 <p>: place visited by confirmed case between 7 to 14 days ago </p>
-                <img style="float:left" src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" width="25" height="25" alt="Yellow Marker Image">
+                <img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" width="25" height="25" alt="Yellow Marker Image">
                 <p>: place visited by confirmed case more than 14 days ago </p>
             </div>
         </div>    
@@ -307,7 +307,6 @@ a:hover {
 }
 
 #legend-container {
-    display: inline-block;
     text-align: center;
     flex-grow: 1;
     margin: 30px;
@@ -316,6 +315,11 @@ a:hover {
     max-height:180px;
     padding:1em;
 	background:whitesmoke;
+    display: inline-block;
+}
+
+img {
+    float: left;
 }
 
 #large-container {

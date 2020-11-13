@@ -177,6 +177,12 @@ p.symps {
 	background:whitesmoke;
 }
 
+button {
+    text-align: center;
+    width: 80px;
+    height: 30px;
+}
+
 /* Customize the label (the container) */
 .container {
   display: block;

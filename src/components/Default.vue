@@ -109,15 +109,9 @@ ol {
   width:350px;
   background:white;
 }
-#title2 {
-
-}
 
 .news {
 padding: 20px;
-}
-#news2 {
-
 }
 </style>
 

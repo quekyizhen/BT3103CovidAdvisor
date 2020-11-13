@@ -137,7 +137,7 @@ h1 {
   bottom:0;
 }
 
-.end {
+#end {
   background-color: rgb(32,52,79);
   border: none;
   color: white;
