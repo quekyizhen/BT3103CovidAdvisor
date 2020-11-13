@@ -12,13 +12,16 @@ export default {
       datasets: [{
         data: [],
         backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ]
+          '#79a7d3', '#8a307f',
+          '#26495c', '#1e2761',
+          
+          '#1868ae', '#d9a5b3', 
+            ],
+          hoverBorderWidth: 8,
+          hoverBorderColor: ['#79a7d3', '#8a307f',
+          '#26495c', '#1e2761',
+          
+          '#1868ae', '#d9a5b3',]
       }],
       
     },
@@ -26,7 +29,6 @@ export default {
         title: {
           // false means no title //
           display: true,
-          text: "Proportion of COVID-19 Cases by Nationality",
         },
         responsive: true,
         // this tooltip is to convert the data and get a % //
