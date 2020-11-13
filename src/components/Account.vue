@@ -44,11 +44,6 @@
     <br><br>
     <button class="end" type="submit">Send reset email</button>
   </form>
-
-
-  <button class="end" @click='resetPasswords' v-if='passwordsFilled && !notSamePasswords && passwordValidation.valid'>
-    Change My Password
-  </button>
 </div>
 </template>
 

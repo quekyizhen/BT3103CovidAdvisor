@@ -5,7 +5,8 @@
   <label for="email">Email:</label>
   <input type="text" v-model="email" value="email" id="email"><br>
   <label for="password">Password:</label>
-  <input type="password" v-model="password" value="password" id="password"><br>
+  <input type="password" v-model="password" value="password" id="password">
+    <router-link to="/forgot">forgot password?</router-link><br>
   <button type="submit">Sign In</button>
     <ul v-if="errors.length">
       <li v-for="error in errors" :key="error">
