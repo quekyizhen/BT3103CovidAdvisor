@@ -1,6 +1,6 @@
 <template>
   <div class="myChart">
-    <chart></chart>
+    <chart :styles="myStyles"></chart>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ import Chart from "./Line_Culmulative.js";
 export default {
   components: {
     Chart,
+  },
+  computed: {
+    myStyles () {
+      return {height: '550px', width: '1340px'}
+    }
   },
 };
 </script>
