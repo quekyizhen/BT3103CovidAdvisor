@@ -4,11 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
 
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+      <style>
+          .tooltip {
+              display:none;
+          }
+      </style>
   </head>
   <body>
     <noscript>
@@ -16,21 +21,5 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-    <script>
-      var firebaseConfig = {
-        apiKey: "AIzaSyC0wn78cHDG7Rb97vS9NhFsia0BIfB1Mi8",
-        authDomain: "bt3103covidadvisor.firebaseapp.com",
-        databaseURL: "https://bt3103covidadvisor.firebaseio.com",
-        projectId: "bt3103covidadvisor",
-        storageBucket: "bt3103covidadvisor.appspot.com",
-        messagingSenderId: "688888531172",
-        appId: "1:688888531172:web:2a6ea4165bb4adb4f144f1",
-        measurementId: "G-ZJG5FEQCBT"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
-      db.settings({ timestampsInSnapshots: true }); 
-    </script>
   </body>
 </html>

@@ -80,15 +80,13 @@ export default {
 
 <style scoped>
 #cloud {
-  position:absolute;
   width:100%;
-  height:1000px;
+  height:auto;
   overflow:hidden;
   z-index:-999;
   left:0;
 }
 #buffer {
   width:100%;
-  height:400px;
 }
 </style>

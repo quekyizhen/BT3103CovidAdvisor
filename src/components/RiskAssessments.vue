@@ -30,6 +30,7 @@
 
 <script>
  import { CalendarView, CalendarViewHeader } from "vue-simple-calendar"
+ import firebase from 'firebase'
 // import CalendarView from './CalendarView.vue'
 //import CalendarViewHeader from './CalendarViewHeader.vue'
 
@@ -81,6 +82,13 @@ export default {
     },
     onClickEvent() {
       this.isHidden = !this.isHidden
+    },
+    getEvents() {
+      return firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
+          data => {
+            data.get('calendarEvents')
+          }
+      )
     }
   }
 }

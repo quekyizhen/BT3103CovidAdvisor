@@ -12,6 +12,7 @@ import SymptomsPage1 from "@/components/SymptomsPage1";
 import SymptomsPage2 from "@/components/SymptomsPage2";
 import Register from "@/components/Register";
 import Map from "@/components/Map";
+import ForgotPassword from "@/components/ForgotPassword";
 
 Vue.use(Router)
 
@@ -32,6 +33,7 @@ export default new Router({
     { path: '/login', component: Login},
     { path: '/', name: "Default", component: Default},
         { path: '/register', name: "Register", component: Register},
+        {path:'/forgot', name:"Forgot", component: ForgotPassword}
     ]
 });
 

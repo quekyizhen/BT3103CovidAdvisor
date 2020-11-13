@@ -7,15 +7,14 @@
       <div v-else><div class="link"><router-link to="/login" exact>Login/Register</router-link></div></div>
       <div class="link"><router-link to="/stats" exact>Statistics</router-link></div>
       <div class="link"><router-link to="/map" exact>Map</router-link></div>
-      <div v-if="!signedIn" class="link"><router-link to="/symptoms1" exact>Track Symptoms</router-link></div>
-      <div v-else class="link"><router-link to="/symptoms" exact>Track Symptoms</router-link></div>
+      <div class="link"><router-link to="/symptoms1" exact>Track Symptoms</router-link></div>
 
     </div>
     <div id="photobar">
       <div class="titletext">Welcome, {{username}}.</div>
     </div>
     <div style="width:100%">
-      <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut"></router-view>
+      <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut" :signedIn="signedIn"></router-view>
     </div>
 
     <div id="copyright">&#169; BT3103 Octopus 2020</div>
@@ -43,7 +42,6 @@ export default {
     toggleSignOut() {
       this.signedIn = false;
       this.username = 'User';
-      this.$router.push("/");
     }
   },
 
@@ -138,7 +136,7 @@ h1 {
   bottom:0;
 }
 
-#end {
+.end {
   background-color: rgb(32,52,79);
   border: none;
   color: white;

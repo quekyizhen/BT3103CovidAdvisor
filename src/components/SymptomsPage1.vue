@@ -1,11 +1,11 @@
 <template>
     <div id="symptoms">
-
+<form novalidate @submit.prevent="submit">
         <h1 class="title">Step 1: Track your symptoms</h1>
 
-        <h2 class="list">Symptoms Onset Date:</h2>
+      <h2 class="list"><label for="date">Symptoms Onset Date:</label></h2>
         <p class="symps">
-        <input type="date" id="date" name="date">
+          <input type="date" id="date" name="date" v-model="date">
         </p>
 
         <h2 class="list">List of Symptoms: (Check all applicable)</h2>
@@ -82,25 +82,25 @@
                     </label>
             </div>
       
-        <p class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
+      <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: </p>
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   
                 </li>
             </ul>
-        </p>
+
 
         <h2 class="list">Have you travelled in the past 2 weeks?</h2>
         <p class="symps">
 
-        <label class="container">Yes
+        <label class="container2" >Yes
             <input type="radio" name="radio" checked="checked" id="yes" value="Yes" v-model="travelled">
-            <span class="checkmark"></span>
+            <span class="checkmark2"></span>
         </label>
 
-        <label class="container">No
-            <input type="radio" name="radio" id="no" value="No" v-model="travelled">
-            <span class="checkmark"></span>
+        <label class="container2">No
+            <input type="radio" name="radio" checked="checked" id="no" value="No" v-model="travelled">
+            <span class="checkmark2"></span>
         </label>
 
         </p>
@@ -113,43 +113,53 @@
         </label>
 
         <label class="container2">No
-            <input type="radio" name="radio2"  value="No" id = "no1" v-model="contact">
+            <input type="radio" name="radio2" id="no1" value="No" v-model="contact">
             <span class="checkmark2"></span>
         </label>
         </p>
-        <div class="wrapper">
+
+        <div v-if="!signedIn" class="wrapper">
             <router-link style="text-decoration: none;" to="/symptoms2">
                 <button type="button">Next</button>
             </router-link>
         </div>
+      <div v-else>
+        <button type="submit" class="end">Submit</button>
+      </div>
+</form>
     </div>
 </template>
 
 <script>
 //import Datepicker from 'vuejs-datepicker'
 //import ModalWindow from './ModalWindow.vue'
-
+import firebase from 'firebase'
 export default {
+
     data() {
         return {
             symptomsSelected: [],
             value:'',
             travelled:'',
-            contact:'', 
-            gender:'',
-            age:'',
-            riskSelected: [],
-            isModalVisible: false,
+            contact:'',
+            date:'',
         };
     },
-    methods: {
-        showModal() {
-        this.isModalVisible = true;
-        },
-        closeModal() {
-        this.isModalVisible = false;
-        }
-    },
+  props:["signedIn",],
+  methods : {
+    submit() {
+      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid)
+          .update({
+            "calendarEvents":
+      firebase.firestore.FieldValue.arrayUnion({
+        symptomsSelected: this.symptomsSelected,
+        travelled: this.travelled,
+        contact: this.contact,
+        date: this.date,
+      })
+    }).then(() => {})
+    }
+  }
 }
 </script>
 
@@ -172,10 +182,17 @@ export default {
 }
 p.symps {
   text-align: left;
+  font-size: 18px;
 }
 
 .wrapper {
     text-align: center;
+}
+
+#box {
+  max-width:300px;
+	padding:1em;
+	background:whitesmoke;
 }
 
 /* Customize the label (the container) */
@@ -246,9 +263,7 @@ p.symps {
   transform: rotate(45deg);
 }
 
-
-
-/* Customize the label (the container) */
+/* The container */
 .container2 {
   display: block;
   position: relative;
@@ -262,16 +277,14 @@ p.symps {
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
+/* Hide the browser's default radio button */
 .container2 input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 0;
-  width: 0;
 }
 
-/* Create a custom checkbox */
+/* Create a custom radio button */
 .checkmark2 {
   position: absolute;
   top: 0;
@@ -279,6 +292,7 @@ p.symps {
   height: 20px;
   width: 20px;
   background-color: #eee;
+  border-radius: 50%;
 }
 
 /* On mouse-over, add a grey background color */
@@ -286,35 +300,31 @@ p.symps {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the radio button is checked, add a blue background */
 .container2 input:checked ~ .checkmark2 {
   background-color: #2196F3;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
+/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark2:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
+/* Show the indicator (dot/circle) when checked */
 .container2 input:checked ~ .checkmark2:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
+/* Style the indicator (dot/circle) */
 .container2 .checkmark2:after {
-  left: 7px;
-  top: 3px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  top: 7px;
+	left: 7px;
+	width: 7px;
+	height: 7px;
+	border-radius: 60%;
+	background: white;
 }
-
 
 </style>

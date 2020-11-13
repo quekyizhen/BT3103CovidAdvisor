@@ -5,7 +5,7 @@
 
         <h2 class="list">Symptoms Onset Date:</h2>
         <p class="symps">
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" v-model="date">
         </p>
 
         <h2 class="list">List of Symptoms: (Check all applicable)</h2>
@@ -82,7 +82,7 @@
                     </label>
             </div>
       
-        <p class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
+        <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   
@@ -93,12 +93,12 @@
         <h2 class="list">Have you travelled in the past 2 weeks?</h2>
         <p class="symps">
 
-        <label class="container2" for="yes">Yes
+        <label class="container2" >Yes
             <input type="radio" name="radio" checked="checked" id="yes" value="Yes" v-model="travelled">
             <span class="checkmark2"></span>
         </label>
 
-        <label class="container2" for="yes">No
+        <label class="container2">No
             <input type="radio" name="radio" checked="checked" id="no" value="No" v-model="travelled">
             <span class="checkmark2"></span>
         </label>
@@ -107,15 +107,16 @@
 
         <h2 class="list">Have you been in contact with a COVID-19 patient in the past 2 weeks?</h2>
         <p class="symps">
-          <label class="container2" for="yes">Yes
+          <label class="container2">Yes
             <input type="radio" name="radio2" checked="checked" id="yes1" value="Yes" v-model="contact">
             <span class="checkmark2"></span>
         </label>
 
-        <label class="container2" for="yes">No
+        <label class="container2">No
             <input type="radio" name="radio2" id="no1" value="No" v-model="contact">
             <span class="checkmark2"></span>
         </label>
+        </p>
 
         <div class="wrapper">
             <button type="button" @click="showModal">Submit </button>
@@ -150,14 +151,15 @@ export default {
             age:'',
             riskSelected: [],
             isModalVisible: false,
+            date:'',
         };
     },
     methods: {
         showModal() {
-        this.isModalVisible = true;
+          this.isModalVisible = true;
         },
         closeModal() {
-        this.isModalVisible = false;
+          this.isModalVisible = false;
         }
     },
 }
@@ -182,10 +184,17 @@ export default {
 }
 p.symps {
   text-align: left;
+  font-size: 18px;
 }
 
 .wrapper {
     text-align: center;
+}
+
+#box {
+  max-width:300px;
+	padding:1em;
+	background:whitesmoke;
 }
 
 /* Customize the label (the container) */
@@ -263,7 +272,7 @@ p.symps {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -282,8 +291,8 @@ p.symps {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
   border-radius: 50%;
 }
@@ -312,11 +321,11 @@ p.symps {
 
 /* Style the indicator (dot/circle) */
 .container2 .checkmark2:after {
-  top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
+  top: 7px;
+	left: 7px;
+	width: 7px;
+	height: 7px;
+	border-radius: 60%;
 	background: white;
 }
 

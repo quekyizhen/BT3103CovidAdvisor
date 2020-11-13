@@ -2,38 +2,39 @@
   <div id="default">
 
     <div id="textbox">
-    <h1 id="start">Welcome to COVID-19 Symptoms Advisor</h1>
+    <h1 id="start">Welcome to the COVID-19 Symptoms Advisor</h1>
 
     <p id="middle">
       Take our risk assessment to find out your risk of having COVID-19, view latest statistics and monitor locations visited by COVID-19 patients, all on one platform.<br><br>
       Register an account to keep track of your symptoms and more or simply take the assessment now — it's fast, free and anonymous.
-    <br><br><br>
+    </p>
+      <br><br><br>
     Simply follow the steps below to take the assessment:
-    <p class="pointers">
-      1. Enter your symptoms information
-    </p>
-    <p class="pointers">
-      2. Enter your brief medical history 
-    </p>
-    <p class="pointers">
-      3. Done! Your assessment results will reveal the likelihood of contracting COVID-19 and advice you on the next steps
-    </p>
+    <ol>
+      <li>Enter your symptoms information</li>
+      <li>Enter your brief medical history </li>
+      <li>Done! Your assessment results will reveal the likelihood of contracting COVID-19 and advice you on the next steps</li>
+    </ol>
+
       <br><br>
 
-      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms">Start assessment now</router-link></button>
+      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
     </div>
-    <h1 id="title">Stay updated with the latest tweets from WHO:</h1>
+
+    <div id="wrapper">
+      <h1 id="title">Stay updated with the latest tweets from WHO:</h1>
     <div id="twitter">
-      <!-- <h1 id="title">Stay updated with the latest tweets from WHO</h1> -->
+
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
       <h1 id="title2">For more information and latest updates visit the links below:</h1>
-      <a id="news" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
+      <a class="news" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
       <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
       </a>
-      <a id="news2" href="https://www.moh.gov.sg/covid-19">
+      <a class="news" href="https://www.moh.gov.sg/covid-19">
       <img border="0" src="@/assets/moh.jpg" width="105" height="55">
       </a>
+    </div>
     
 
   </div>
@@ -57,20 +58,21 @@ components: {
 }
 
 #start {
-  font-size: 40px;
+  font-size: 30px;
 }
 #middle {
-  font-size: 25px;
+  font-size: 20px;
 }
-#pointers {
-  margin-left:35px;
+ol {
+  font-size:18px;
+  line-height:30px;
 }
 #textbox {
   display:inline-block;
-  width:calc(100% - 450px);
+  width:calc(100% - 500px);
   vertical-align:top;
   text-align:justify;
-  margin:30px;
+  margin: 30px 100px 30px 30px;
   font-size: 20px;
 }
 
@@ -89,37 +91,33 @@ components: {
 /* #news {
   margin-left: 20px;
 } */
-
+#wrapper {
+  width:350px;
+  display:inline-block;
+  height:500px;
+}
 #twitter {
   width:350px;
   height:425px;
   overflow:auto;
-  position: absolute;
   right: 35px;
   top: 750px
 }
 #title {
-  position: absolute;
-  right: 35px;
-  top: 650px;
-  width:350px; 
+  position: sticky;
+  top:0;
+  width:350px;
+  background:white;
 }
 #title2 {
-  position: absolute;
-  right: 35px;
-  top: 1200px;
-  width:350px; 
+
 }
 
-#news {
-  position: absolute;
-  right: 280px;
-  top: 1340px;
+.news {
+padding: 20px;
 }
 #news2 {
-  position: absolute;
-  right: 140px;
-  top: 1340px;
+
 }
 </style>
 
