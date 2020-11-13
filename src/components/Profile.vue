@@ -15,7 +15,7 @@
         <button>Settings</button>
         </router-link>
 
-        <button @click="$emit('toggleSignOut')">Sign Out</button>
+        <button type="submit" @click="logOut">Sign Out</button>
     </div>
     <div class="content">
         <router-view></router-view>
@@ -24,8 +24,18 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
-
+  methods: {
+    logOut() {
+      firebase.auth().signOut().then(() => {
+        firebase.auth().onAuthStateChanged(() => {
+          this.$emit('toggleSignOut')
+          this.$router.push('/login')
+        })
+      })
+    }
+  }
 }
 </script>
 
