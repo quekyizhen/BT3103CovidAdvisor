@@ -1,11 +1,11 @@
 <template>
     <div id="symptoms">
-
+<form novalidate @submit.prevent="submit">
         <h1 class="title">Step 1: Track your symptoms</h1>
 
-        <h2 class="list">Symptoms Onset Date:</h2>
+      <h2 class="list"><label for="date">Symptoms Onset Date:</label></h2>
         <p class="symps">
-        <input type="date" id="date" name="date">
+          <input type="date" id="date" name="date" v-model="date">
         </p>
 
         <h2 class="list">List of Symptoms: (Check all applicable)</h2>
@@ -82,13 +82,13 @@
                     </label>
             </div>
       
-        <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
+      <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: </p>
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   
                 </li>
             </ul>
-        </p>
+
 
         <h2 class="list">Have you travelled in the past 2 weeks?</h2>
         <p class="symps">
@@ -118,30 +118,48 @@
         </label>
         </p>
 
-        <div class="wrapper">
+        <div v-if="!signedIn" class="wrapper">
             <router-link style="text-decoration: none;" to="/symptoms2">
                 <button type="button">Next</button>
             </router-link>
         </div>
+      <div v-else>
+        <button type="submit" class="end">Submit</button>
+      </div>
+</form>
     </div>
 </template>
 
 <script>
 //import Datepicker from 'vuejs-datepicker'
 //import ModalWindow from './ModalWindow.vue'
-
+import firebase from 'firebase'
 export default {
+
     data() {
         return {
             symptomsSelected: [],
             value:'',
             travelled:'',
-            contact:'', 
-            gender:'',
-            age:'',
-            riskSelected: [],
+            contact:'',
+            date:'',
         };
     },
+  props:["signedIn",],
+  methods : {
+    submit() {
+      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid)
+          .update({
+            "calendarEvents":
+      firebase.firestore.FieldValue.arrayUnion({
+        symptomsSelected: this.symptomsSelected,
+        travelled: this.travelled,
+        contact: this.contact,
+        date: this.date,
+      })
+    }).then(() => {})
+    }
+  }
 }
 </script>
 

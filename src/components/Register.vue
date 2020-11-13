@@ -34,28 +34,28 @@
 
     <br><br>
       <label for="risk factors">Prevailing Risk Factors (Check all applicable): <br>
-        <input type="checkbox" value="Cardiac Disease" v-model="riskSelected">
+        <input type="checkbox" value="Cardiac Disease" v-model="form.riskSelected">
         <label for="Cardiac Disease">Cardiac Disease</label> <br>
 
-        <input type="checkbox" value="Diabetes" v-model="riskSelected">
+        <input type="checkbox" value="Diabetes" v-model="form.riskSelected">
         <label for="Diabetes">Diabetes</label> <br>
 
-        <input type="checkbox" value="Chronic Lung Disease" v-model="riskSelected">
+        <input type="checkbox" value="Chronic Lung Disease" v-model="form.riskSelected">
         <label for="Chronic Lung Disease">Chronic Lung Disease</label> <br>
 
-        <input type="checkbox" value="Liver Disease" v-model="riskSelected">
+        <input type="checkbox" value="Liver Disease" v-model="form.riskSelected">
         <label for="Liver Disease">Liver Disease</label> <br>
 
-        <input type="checkbox" value="Immunosupressed" v-model="riskSelected">
+        <input type="checkbox" value="Immunosupressed" v-model="form.riskSelected">
         <label for="Immunosupressed">Immunosupressed</label> <br>
 
-        <input type="checkbox" value="Cancer" v-model="riskSelected">
+        <input type="checkbox" value="Cancer" v-model="form.riskSelected">
         <label for="Cancer">Cancer</label> <br>
 
-        <input type="checkbox" value="Obesity" v-model="riskSelected">
+        <input type="checkbox" value="Obesity" v-model="form.riskSelected">
         <label for="Obesity">Obesity</label> <br>
 
-        <input type="checkbox" value="Renal Disease" v-model="riskSelected">
+        <input type="checkbox" value="Renal Disease" v-model="form.riskSelected">
         <label for="Renal Disease">Renal Disease</label> <br>
       </label>
       <br>
@@ -117,7 +117,7 @@ export default {
         gender: '',
         age: '',
         email: '',
-
+        riskSelected: [],
         password: '',
         cpassword: '',
 
@@ -177,7 +177,8 @@ export default {
                       email: email,
                       firstName: displayName,
                       lastName: this.form.lname,
-                      calendarEvents: []
+                      calendarEvents: [],
+                      risks: this.form.riskSelected
                     }
                     // write new doc to collection
                     firebase.firestore().collection('accounts').doc(userUid).set(account).then(() => {
