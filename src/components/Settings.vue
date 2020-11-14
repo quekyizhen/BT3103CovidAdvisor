@@ -11,20 +11,28 @@
             <option>Tamil</option>
         </select>
         <br><br><br>
-        <button id="end">Save Changes</button>
+        <button class="end">Save Changes</button>
         </label><br><br><br>
 
         <h1>Delete Account:</h1>
-        <h4>In about 2 days, your account will be permanently deleted</h4>
+        <h4>Your account will be permanently deleted.</h4>
         <br>
-        <button id="end">Delete My Account</button>
+        <button class="end" @click="deleteAcc">Delete My Account</button>
 
     </div>
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
-    
+    methods: {
+      deleteAcc: function () {
+        firebase.auth().currentUser.delete();
+
+        this.$router.push("/");
+        this.$router.go(0);
+      }
+    }
 }
 </script>
 
@@ -89,20 +97,6 @@ select {
     float: right;
     clear: both;
     width: 100px
-}
-
-#end {
-    background-color: rgb(32,52,79);
-    border: none;
-    color: white;
-    padding: 12px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 8px 4px;
-    cursor: pointer;
-    border-radius: 8px;
 }
 
 

@@ -18,7 +18,7 @@
 
       <br><br>
 
-      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
+      <button class="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
     </div>
 
     <div id="wrapper">
@@ -27,7 +27,7 @@
 
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
-      <h1 id="title2">For more information and latest updates visit the links below:</h1>
+      <h1 id="title2">For more information and latest updates, visit the links below:</h1>
       <a class="news" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
       <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
       </a>
