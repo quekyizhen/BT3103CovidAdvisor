@@ -124,7 +124,8 @@
             </router-link>
         </div>
       <div v-else>
-        <button type="submit" class="end">Submit</button>
+        <button type="submit" @click="showModal" class="end">Submit</button>
+        <modal v-bind:symptomsSelected="symptomsSelected" v-bind:riskSelected="riskSelected" v-bind:contact="contact" v-bind:age="age" v-show="isModalVisible" @close="closeModal"/>
       </div>
 </form>
     </div>
@@ -132,10 +133,12 @@
 
 <script>
 //import Datepicker from 'vuejs-datepicker'
-//import ModalWindow from './ModalWindow.vue'
+import ModalWindow from './ModalWindow.vue'
 import firebase from 'firebase'
 export default {
-
+    components: {
+      'modal': ModalWindow,
+    },
     data() {
         return {
             symptomsSelected: [],
@@ -143,10 +146,13 @@ export default {
             travelled:'',
             contact:'',
             date:'',
+            isModalVisible: false,
+
         };
     },
   props:["signedIn",],
   methods : {
+    
     submit() {
       firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid)
           .update({
@@ -158,7 +164,14 @@ export default {
         date: this.date,
       })
     }).then(() => {})
-    }
+    },
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+
   }
 }
 </script>

@@ -1,11 +1,12 @@
 <template>
 <div>
-  <div id="cal">
+  <div onload="addSymptomsEvent" id="cal">
     <h1>My Calendar</h1>
+    <button @click="addSymptomsEvent()">Show symptoms</button>
     <calendar-view
         :show-date="showDate"
-        :items="risks"
-        :display-period-uom="month"
+        :items="riskAssessments"
+        
         @click-item="onClickEvent(calendarItem, windowEvent)"
     >
       <calendar-view-header
@@ -19,7 +20,15 @@
   </div>
   <div id="buffer"></div>
   <div id="risk">
-    <h2 v-if="isHidden == false">Your symptoms recorded on this day were:</h2>
+    <div v-if="isHidden == false">
+      <h2>Your symptoms recorded:</h2>
+      <ul v-for="event in this.events" v-bind:key="event.date">
+        {{event.date}}
+        <li v-for="symps in event.symptomsSelected" v-bind:key="symps">
+          {{symps}}
+        </li> 
+      </ul>
+    </div>
   </div>
 
   <h2>Clear past risk assessments</h2>
@@ -39,38 +48,15 @@ export default {
   components: {
 		CalendarView,
 		CalendarViewHeader,
-	},
+  },
+  props:["signedIn",],
   data: function () {
 		return {
       showDate: new Date(),
       isHidden: true,
-      risks:[
-          {
-            id: 'e1',
-            title: 'Sample event 1',
-            startDate: '2020-10-19',
-            endDate: '2020-10-19',
-          }, 
-          {
-            id: 'e2',
-            title: 'Sample event 2',
-            startDate: '2020-10-06',
-            endDate: '2020-10-13',
-          },
-          {
-            id: 'e3',
-            title: 'Sample event 3',
-            startDate: '2020-10-21',
-            endDate: '2020-10-22'
-          },
-          {
-            id: 'e4',
-            title: 'Sample event 4',
-            startDate: '2020-11-21',
-            endDate: '2020-11-22'
-          }
-          ],
-      items: Array(this.risks).fill()
+      riskAssessments: [],
+      items: Array(this.riskAssessments).fill(),
+      events: [],
 		}
 	},
 	methods: {
@@ -78,24 +64,84 @@ export default {
 			this.showDate = d
     },
     clearAssessments() {
-      this.risks = []
+      this.riskAssessments = [];
+      document.getElementById("risk").innerHTML = "";
     },
     onClickEvent() {
-      this.isHidden = !this.isHidden
+      this.isHidden = !this.isHidden;
     },
+    
     getEvents() {
-      return firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
-          data => {
-            data.get('calendarEvents')
-          }
+      /*
+      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
+        function(doc) {
+            if (doc.exists) {
+              var data = doc.data();
+              this.events.push(data.calendarEvents);
+          
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+            }).catch(function(error) {
+                console.log("Error getting document:", error)
+              }
+            )*/
+      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
+        data => {
+          this.events = data.data().calendarEvents;
+        }
       )
-    }
+    },
+
+    addSymptomsEvent() {
+      /*
+      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
+          function(doc) {
+            if (doc.exists) {
+              var data = doc.data();
+              var calendarEventsArray = data.calendarEvents;
+              //console.log(calendarEventsArray);
+              var arrayLength = calendarEventsArray.length;
+              //console.log(arrayLength);
+              for (var i = 0; i < arrayLength; i++) {
+                  //console.log(calendarEventsArray[i].date);
+                  var dict = {};
+                  dict['id'] = String(i);
+                  dict['title'] = 'Risk Assessment ' +i;
+                  dict['startDate'] = calendarEventsArray[i].date;
+                  dict['endDate'] = calendarEventsArray[i].date;
+                  console.log(dict);
+                  this.riskAssessments.push(dict);
+              }
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+              }
+
+          );*/
+      this.getEvents();
+      var arrayLength = this.events.length;
+      for (var i = 0; i < arrayLength; i++) {
+          var num = i+1;
+          var dict = {};
+          dict['id'] = String(num);
+          dict['title'] = 'Risk Assessment ' + num;
+          dict['startDate'] = this.events[i].date;
+          dict['endDate'] = this.events[i].date;
+          this.riskAssessments.push(dict);
+      }
+
+    },
   }
 }
+
 </script>
+
 <style scoped>
-
-
 #cal {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		color: #2c3e50;
