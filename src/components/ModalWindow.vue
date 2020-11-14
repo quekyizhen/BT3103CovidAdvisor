@@ -27,7 +27,7 @@
           <p v-else-if=" (symptomsSelected.length >=3 && symptomsSelected.length <=6) && contact=='No' || (symptomsSelected.length >=3 && symptomsSelected.length <=6)">
             It is probable that you may be infected with COVID-19. Please seek professional advice from a doctor! 
             Click <a target="_blank" href="https://flu.gowhere.gov.sg/ ">here</a> to view clinics near you. <br><br>
-            <iframe width="600" height="400" src="https://data.gov.sg/dataset/chas-clinics/resource/21dace06-c4d1-4128-9424-aba7668050dc/view/5cbf5325-26d2-4e3b-a54d-e20d6d07dcd2" frameBorder="0"> </iframe>
+            <iframe width="800" height="400" src="https://data.gov.sg/dataset/chas-clinics/resource/21dace06-c4d1-4128-9424-aba7668050dc/view/5cbf5325-26d2-4e3b-a54d-e20d6d07dcd2" frameBorder="0"> </iframe>
           </p>
           <p v-else-if="symptomsSelected.length >= 7 && contact =='Yes' || symptomsSelected.length >= 7">
             It is highly probable that you may be infected with COVID-19. Please go to the Emergency Department at the hospital immediately! 
@@ -139,4 +139,5 @@ a:hover {
     color:red;
     text-decoration: underline;
 }
+
 </style>
