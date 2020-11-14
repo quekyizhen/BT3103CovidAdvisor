@@ -10,20 +10,23 @@ export default {
         // Months label on x-axis //
       labels: [],
       datasets: [{
-        label: "Hide",
+        label: "Daily Cases",
         data: [],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)'
-      ]
+          '#79a7d3'
+      ],
+      pointHoverBackgroundColor: '#ADD8E6',
+      pointHoverRadius: 6,
+      borderColor: '#1868ae'
       }],
       
     },
     options: {
         title: {
           display: true,
-          text: "Graph of Daily COVID-19 Cases in Singapore",
         },
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
           xAxes: [{
             type:'time',

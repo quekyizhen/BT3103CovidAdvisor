@@ -12,9 +12,11 @@ export default {
       datasets: [{
         data: [],
         backgroundColor: [
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 99, 132, 0.2)'
-          ]
+          '#79a7d3', '#8a307f',
+
+          ],
+          hoverBorderWidth: 8,
+          hoverBorderColor: ['#79a7d3', '#8a307f'],
       }],
     },
     options: {
@@ -22,7 +24,6 @@ export default {
       title: {
         // false means no title //
           display: true,
-          text: "Proportion of COVID-19 Cases by Age",
         },
         // this tooltip is to convert the data and get a % //
         tooltips: {
