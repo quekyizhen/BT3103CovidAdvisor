@@ -12,21 +12,24 @@ export default {
         // Months label on x-axis //
       labels: [],
       datasets: [{
-          label:'Hide',
+          label:'Cumulative Cases',
         data: [],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)'
-      ]
+          '#79a7d3'
+      ],
+      pointHoverBackgroundColor: '#ADD8E6',
+      pointHoverRadius: 6,
+      borderColor: '#1868ae'
       }],
       
     },
     options: {
         title: {
           display: true,
-          text: "Culmulative Number of COVID-19 Cases til Date",
         },
         responsive: true,
         maintainAspectRatio: false,
+        height: 10,
         scales: {
           xAxes: [{
             type:'time',

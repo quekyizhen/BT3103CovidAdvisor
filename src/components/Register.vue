@@ -183,11 +183,13 @@ export default {
                     // write new doc to collection
                     firebase.firestore().collection('accounts').doc(userUid).set(account).then(() => {
                     });
+                    this.$router.push("/login");
                   });
             })
 
             .catch(err => {
               console.log(err.message);
+
             });
       } else {
         console.log(this.errors.length)
