@@ -2,7 +2,7 @@
 <div>
   <div onload="addSymptomsEvent" id="cal">
     <h1>My Calendar</h1>
-    <button @click="addSymptomsEvent()">Show symptoms</button>
+    <button id="end" @click="addSymptomsEvent()">Show Risk Assessments</button>
     <calendar-view
         :show-date="showDate"
         :items="riskAssessments"
@@ -144,7 +144,7 @@ export default {
 
 #buffer {
   width:100%;
-  height:70vh;
+  height:80vh;
 }
 
 </style>

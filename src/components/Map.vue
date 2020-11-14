@@ -243,6 +243,7 @@
 #title {
     text-align: left;
     padding-left: 40px;
+    padding-top:20px;
 }
 .vue-map-container,
 .vue-map-container .vue-map {
@@ -333,6 +334,8 @@ table {
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
+  width: 1000px;
+  height:400px;
 }
 td, th {
   border: 1px solid #dddddd;

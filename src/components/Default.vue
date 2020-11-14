@@ -18,7 +18,7 @@
 
       <br><br>
 
-      <button class="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
+      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
     </div>
 
     <div id="wrapper">
@@ -46,7 +46,7 @@ import { Timeline } from 'vue-tweet-embed'
 
 export default {
   name: "Default",
-components: {
+  components: {
      Timeline
 }
 }
@@ -61,7 +61,7 @@ components: {
   font-size: 30px;
 }
 #middle {
-  font-size: 20px;
+  font-size: 18px;
 }
 ol {
   font-size:18px;
@@ -73,7 +73,7 @@ ol {
   vertical-align:top;
   text-align:justify;
   margin: 30px 100px 30px 30px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* #twitter {
