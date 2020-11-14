@@ -48,7 +48,35 @@ export default {
           .catch((error) => {
             this.errors.push(error.message)
           });
-    }
+
+          /*
+          firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+              function getEvents() {
+                return firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
+                    data => {
+                      data.get('calendarEvents')
+                    }
+                )
+              }
+              var calendarEventsArray = getEvents();
+              var arrayLength = calendarEventsArray.length;
+              for (var i = 0; i < arrayLength; i++) {
+                  console.log(calendarEventsArray[i].get("date", new Date().toISOString().slice(0, 10)));
+                  var dict = {};
+                  dict['id'] = String(i);
+                  dict['title'] = 'Risk Assessment ' +i;
+                  dict['startDate'] = calendarEventsArray[i].get("date", new Date().toISOString().slice(0, 10));
+                  dict['endDate'] = calendarEventsArray[i].get("date", new Date().toISOString().slice(0, 10));
+                  this.risks.push(dict);
+              }
+              this.props.navigator.push('friendsList')
+              this.setState({
+                loading: false
+              })
+            }
+          })*/
+    },
   }
 }
 </script>

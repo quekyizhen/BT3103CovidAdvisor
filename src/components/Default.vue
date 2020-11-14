@@ -27,7 +27,7 @@
 
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
-      <h1 id="title2">For more information and latest updates visit the links below:</h1>
+      <h1 id="title2">For more information and latest updates, visit the links below:</h1>
       <a class="news" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
       <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
       </a>
@@ -46,7 +46,7 @@ import { Timeline } from 'vue-tweet-embed'
 
 export default {
   name: "Default",
-components: {
+  components: {
      Timeline
 }
 }
@@ -61,7 +61,7 @@ components: {
   font-size: 30px;
 }
 #middle {
-  font-size: 20px;
+  font-size: 18px;
 }
 ol {
   font-size:18px;
@@ -73,7 +73,7 @@ ol {
   vertical-align:top;
   text-align:justify;
   margin: 30px 100px 30px 30px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* #twitter {
@@ -109,15 +109,9 @@ ol {
   width:350px;
   background:white;
 }
-#title2 {
-
-}
 
 .news {
 padding: 20px;
-}
-#news2 {
-
 }
 </style>
 
