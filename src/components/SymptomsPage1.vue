@@ -123,7 +123,7 @@
                 <button type="button">Next</button>
             </router-link>
         </div>
-      <div v-else>
+      <div v-else class="wrapper">
         <button type="submit" @click="showModal" class="end">Submit</button>
         <modal v-bind:symptomsSelected="symptomsSelected" v-bind:riskSelected="riskSelected" v-bind:contact="contact" v-bind:age="age" v-show="isModalVisible" @close="closeModal"/>
       </div>

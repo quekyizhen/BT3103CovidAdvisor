@@ -95,34 +95,6 @@ export default {
     },
 
     addSymptomsEvent() {
-      /*
-      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
-          function(doc) {
-            if (doc.exists) {
-              var data = doc.data();
-              var calendarEventsArray = data.calendarEvents;
-              //console.log(calendarEventsArray);
-              var arrayLength = calendarEventsArray.length;
-              //console.log(arrayLength);
-              for (var i = 0; i < arrayLength; i++) {
-                  //console.log(calendarEventsArray[i].date);
-                  var dict = {};
-                  dict['id'] = String(i);
-                  dict['title'] = 'Risk Assessment ' +i;
-                  dict['startDate'] = calendarEventsArray[i].date;
-                  dict['endDate'] = calendarEventsArray[i].date;
-                  console.log(dict);
-                  this.riskAssessments.push(dict);
-              }
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-            }).catch(function(error) {
-                console.log("Error getting document:", error);
-              }
-
-          );*/
       this.getEvents();
       var arrayLength = this.events.length;
       for (var i = 0; i < arrayLength; i++) {
