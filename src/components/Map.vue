@@ -12,57 +12,8 @@
                     <li>see a doctor promptly if you develop symptoms and inform the doctor of your exposure history</li>
                 </ul>
             </p>
-            <button type="button" style="font-size:18px;font-weight:bold;margin:10px;" @click="onClickEvent()">List of places</button>
-            <div v-show="showList">
-                <h2>List of public places visited by confirmed cases</h2>
-                <table>
-                    <tr>
-                    <th>Last Contact Date</th>
-                    <th>Last Contact Time</th>
-                    <th>Location</th>    
-                    </tr>
-                    <tr>
-                    <td>10th November 2020</td>
-                    <td>9pm - 11pm</td>    
-                    <td>Kanpai 789 (Robertson Walk)</td>
-                    </tr>
-                    <tr>
-                    <td>9th November 2020</td>
-                    <td>9pm - 10.30pm</td>    
-                    <td>Quench! Bistro &AMP; Bar (ORTO)</td>
-                    </tr>
-                    <tr>
-                    <td>5th November 2020</td>
-                    <td>8am - 9am</td>    
-                    <td>BreadTalk (Causeway Point)</td>
-                    </tr>
-                    <tr>
-                    <td>4th November 2020</td>
-                    <td>10am - 11am</td>    
-                    <td>Puma (Jewel)</td>
-                    </tr>
-                    <tr>
-                    <td>2nd November 2020</td>
-                    <td>11am - 2pm</td>    
-                    <td>Guardian (Sunplaza)</td>
-                    </tr>
-                    <tr>
-                    <td>29th October 2020</td>
-                    <td>2pm - 4pm</td>    
-                    <td>iSteaks (Star Vista)</td>
-                    </tr>
-                    <tr>
-                    <td>28th October 2020</td>
-                    <td>6pm - 9pm</td>    
-                    <td>Cold Storage (Velocity@Novena)</td>
-                    </tr>
-                    <tr>
-                    <td>26th October 2020</td>
-                    <td>7pm - 9pm</td>    
-                    <td>Victor's Kitchen (Sunshine Plaza)</td>
-                    </tr>
-                </table>
-            </div>
+            <button type="button" style="font-size:18px;font-weight:bold;margin:10px;" @click="showModal">List of places</button>
+                <modal-map-list id="modal" v-show="isModalVisible" @close="closeModal"/>
         </div>
         <div id="large-container">
 <!-- This is the Map below the above text!  -->
@@ -130,8 +81,14 @@
 </template>
 
 <script>
+import ModalMapList from './ModalMapList.vue';
+
     export default {
+         components: {
+            'modal-map-list': ModalMapList,
+        },
         data: () => ({
+            isModalVisible: false,
             showList: false,
             selectedLocation: null,
             infoBoxOpen: false,
@@ -234,6 +191,12 @@
             }, 
             onClickEvent() {
                 this.showList =!this.showList;
+            },
+            showModal() {
+                this.isModalVisible = true;
+            },
+                closeModal() {
+                this.isModalVisible = false;
             }
         },
     }
@@ -344,5 +307,13 @@ td, th {
 }
 tr:nth-child(odd) {
   background-color: #DCDCDC;
+}
+
+#modal {
+    z-index: 999;
+}
+
+#large-container {
+    z-index:0;
 }
 </style>
