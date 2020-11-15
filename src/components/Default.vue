@@ -28,10 +28,10 @@
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
       <h1 id="title2">For more information and latest updates, visit the links below:</h1>
-      <a class="news" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
+      <a class="news" target="_blank" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
       <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
       </a>
-      <a class="news" href="https://www.moh.gov.sg/covid-19">
+      <a class="news" target="_blank" href="https://www.moh.gov.sg/covid-19">
       <img border="0" src="@/assets/moh.jpg" width="105" height="55">
       </a>
     </div>

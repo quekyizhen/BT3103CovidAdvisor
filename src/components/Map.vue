@@ -12,7 +12,7 @@
                     <li>see a doctor promptly if you develop symptoms and inform the doctor of your exposure history</li>
                 </ul>
             </p>
-            <button type="button" style="font-size:18px;font-weight:bold;margin:10px;" @click="showModal">List of places</button>
+            <button type="button" class="end" @click="showModal">List of places</button>
                 <modal-map-list id="modal" v-show="isModalVisible" @close="closeModal"/>
         </div>
         <div id="large-container">
@@ -317,5 +317,18 @@ tr:nth-child(odd) {
 
 #large-container {
     z-index:0;
+}
+.end {
+    background-color: rgb(32,52,79);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 8px 4px;
+    cursor: pointer;
+    border-radius: 8px;
 }
 </style>

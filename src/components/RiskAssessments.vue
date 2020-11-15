@@ -2,7 +2,7 @@
 <div>
   <div onload="addSymptomsEvent" id="cal">
     <h1>My Calendar</h1>
-    <button id="end" @click="addSymptomsEvent()">Show Risk Assessments</button>
+    <button id="end" @click="addSymptomsEvent()">Show Risk Assessments</button><br><br>
     <calendar-view
         :show-date="showDate"
         :items="riskAssessments"
