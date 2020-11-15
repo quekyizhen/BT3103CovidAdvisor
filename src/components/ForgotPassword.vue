@@ -4,7 +4,7 @@
     <form novalidate @submit.prevent="forgotPassword">
       <label for="email">Email:</label>
       <input type="text" v-model="email" value="email" id="email" style="padding:7px; margin:10px"><br><br>
-      <button class="end" type="submit">Send reset password link</button>
+      <button class="end" type="submit">Send Link to Reset Password</button>
     </form>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
             .auth()
             .sendPasswordResetEmail(this.email)
             .then(() => {
-              alert('Check your registered email to reset the password!')
+              alert('Check your Registered Email to Reset Password!')
             }).catch((error) => {
           alert(error)
         })
@@ -36,6 +36,8 @@ export default {
 
 <style scoped>
 #forgot {
-  padding:60px
+  padding-top:20px;
+  padding-left:80px;
+  padding-bottom:60px;
 }
 </style>
