@@ -93,15 +93,16 @@ export default {
                 console.log("Error getting document:", error)
               }
             )*/
-      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
+      return firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
         data => {
           this.events = data.data().calendarEvents;
         }
       )
     },
 
-    addSymptomsEvent() {
-      this.getEvents();
+    async addSymptomsEvent() {
+      await this.getEvents();
+
       for (var i = 0; i < this.events.length; i++) {
           var num = i+1;
           var dict = {};

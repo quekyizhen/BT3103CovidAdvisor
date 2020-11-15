@@ -50,7 +50,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding:0;
@@ -66,8 +66,12 @@ a {
   color:inherit;
 }
 
+b {
+  font-weight: 600;
+}
+
 h1 {
-  font-size:25px;
+  font-size:30px;
 }
 
 
@@ -80,7 +84,7 @@ h1 {
 }
 
 #header {
-  width:calc(100%- 40px);
+  width:100%;
   height:100px;
   color:black;
   background: #20344a;
@@ -121,7 +125,7 @@ h1 {
   background: url(https://static.tumblr.com/c1oapfr/2ysqip0tr/artboard_1.png) bottom;
   background-size: 100%;
   width:100%;
-  height: 480px;
+  height: 440px;
 }
 
 #copyright {

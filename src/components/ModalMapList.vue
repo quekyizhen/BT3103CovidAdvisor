@@ -87,6 +87,10 @@
 h2.center {
   text-align: center;
 }
+
+h2 {
+  padding-left:30px;
+}
 .modal-backdrop {
   position:fixed;
   left:0;

@@ -2,8 +2,8 @@
 <div id="fitb">
         <h1>Preferences:</h1>
 
-        <label for="name">Language:
-        <select v-model="languages">
+        <label for="languages">Language:
+        <select v-model="languages" id="languages">
             <option disabled value=""></option>
             <option>English</option>
             <option>Chinese</option>

@@ -1,17 +1,17 @@
 <template>
-    <div> 
+    <div id="map">
         <div id="title">
-            <h1>Public places that confirmed cases had visited during infectious period</h1>
+            <h1>Public places that confirmed cases visited during infectious period</h1>
             <p>These public places had been visited for more than 30 minutes by the confirmed cases in the community. 
                 Those who had been identified as close contacts of confirmed cases would already have been notified by MOH. 
                 Click <a target="_blank" href="https://wereyouthere.safeentry.gov.sg/"> here</a> to check if you have been to these places.
             </p>
-            <p> If you have been at these locations during these specified timings:
+            <p> If you have been at these locations during these specified timings:</p>
                 <ul>
-                    <li>monitor your health closely for 14 days from the date of visit</li>
-                    <li>see a doctor promptly if you develop symptoms and inform the doctor of your exposure history</li>
+                    <li>Monitor your health closely for 14 days from the date of visit</li>
+                    <li>See a doctor promptly if you develop symptoms and inform the doctor of your exposure history</li>
                 </ul>
-            </p>
+
             <button type="button" class="end" @click="showModal">List of places</button>
                 <modal-map-list id="modal" v-show="isModalVisible" @close="closeModal"/>
         </div>
@@ -21,7 +21,7 @@
                 <gmap-map 
                     :center="center"
                     :zoom="zoom"
-                    style="width:1200px; height:600px; margin: 6px auto;"
+                    style="width:100%; height:400px;"
                     ref="map"
                 >
                 <!-- There are 3 different marker denoting the 3 diff icons (green,red,yellow) -->
@@ -211,15 +211,15 @@ import ModalMapList from './ModalMapList.vue';
 }
 .vue-map-container,
 .vue-map-container .vue-map {
-    width: 100%;
     height: 100%;
+  width:calc(100% - 40px);
+  margin: 0 20px;
 }
 /* labelled properly under infowindow what css apply to which! */
 .infoWindow {
     text-align: center;
 }
 .infoW-location {
-  font-family:Montserrat;
   line-height: 1em;
   display: block;
   font-size: 1.6em;
@@ -229,7 +229,6 @@ import ModalMapList from './ModalMapList.vue';
   font-weight: bold;
 }
 .infoW-shop {
-    font-family:Montserrat;
     color:maroon;
   line-height: 0.5em;
   display: block;
@@ -239,7 +238,6 @@ import ModalMapList from './ModalMapList.vue';
 
 }
 .infoW-date {
-    font-family:Montserrat;
   line-height: 0.3em;
   display: block;
   font-size: 1.1em;
@@ -247,7 +245,6 @@ import ModalMapList from './ModalMapList.vue';
 }
 
 .infoW-time {
-    font-family:Montserrat;
   line-height: 0.3em;
   display: block;
   font-size: 1.1em;
@@ -267,21 +264,22 @@ a:hover {
 
 #map-container {
     display: inline-block;
-    padding: 60px;
-    width: 1400px;
+  width:70%;
+  margin:30px;
+  vertical-align: top;
 }
 
 #legend-container {
     text-align: center;
     flex-grow: 1;
-    margin: 30px;
-    margin-top:90px;
-    width: 30%;
-    height: 20%;
-    padding:1em;
+margin-left:30px;
+  margin-top: 30px;
+  width:20%;
+    padding:10px;
 	background:whitesmoke;
     display: inline-block;
     font-size: 16px;
+  vertical-align: top;
 }
 
 img {
@@ -289,7 +287,8 @@ img {
 }
 
 #large-container {
-    display: flex;
+  width:100%;
+  vertical-align: top;
 }
 
 button {
@@ -299,8 +298,9 @@ table {
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 80%;
   height:400px;
+  padding:20px;
 }
 td, th {
   border: 1px solid #dddddd;
@@ -317,6 +317,7 @@ tr:nth-child(odd) {
 
 #large-container {
     z-index:0;
+  display: inline-block;
 }
 .end {
     background-color: rgb(32,52,79);
@@ -330,5 +331,9 @@ tr:nth-child(odd) {
     margin: 8px 4px;
     cursor: pointer;
     border-radius: 8px;
+}
+
+#map {
+  padding:50px;
 }
 </style>

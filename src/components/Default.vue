@@ -22,12 +22,12 @@
     </div>
 
     <div id="wrapper">
-      <h1 id="title">Stay updated with the latest tweets from WHO:</h1>
+      <h2 id="title">Stay updated with the latest tweets from WHO:</h2>
     <div id="twitter">
 
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
-      <h1 id="title2">For more information and latest updates, visit the links below:</h1>
+      <h2 id="title2">For more information and latest updates, visit the links below:</h2>
       <a class="news" target="_blank" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
       <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
       </a>
@@ -76,21 +76,6 @@ ol {
   font-size: 18px;
 }
 
-/* #twitter {
-  width:350px;
-  padding:20px;
-  display:inline-block;
-  height:425px;
-  overflow:auto;
-  vertical-align:top;
-} */
-/* #title {
-  width:350px;
-  padding:10px;
-} */
-/* #news {
-  margin-left: 20px;
-} */
 #wrapper {
   width:350px;
   display:inline-block;
