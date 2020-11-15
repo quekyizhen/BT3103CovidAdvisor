@@ -32,8 +32,7 @@
       <br>
     </div>
 
-    <br><br>
-      <label for="risk factors">Prevailing Risk Factors (Check all applicable): <br>
+      <label for="risk factors"><b>Prevailing Risk Factors (Check all applicable): </b><br><br>
         <input type="checkbox" value="Cardiac Disease" v-model="form.riskSelected">
         <label for="Cardiac Disease">Cardiac Disease</label> <br>
 
@@ -61,21 +60,18 @@
       <br>
 
     <h1>Password:</h1>
-    <h4>Please follow the requirements to create your password</h4>
-      <ul v-for="rule in rules" :key="rule">
-        <li>{{rule.message}}</li>
-      </ul>
+
     <div class="items">
 
-      <label for="password">Password:
+      <label for="password"><b>Password:   </b>
         <input :type="passwordFieldType" v-model="form.password" value="password" id="password">
       </label> <br><br>
 
-      <label for="cpassword">Confirm Password:
+      <label for="cpassword"><b>Confirm Password:   </b>
         <input :type="passwordFieldType" v-model.lazy="form.cpassword" value="cpassword" id="cpassword">
       </label> <br><br>
 
-      <button type="button" @click="switchVisibility">show / hide password</button>
+      <button type="button" @click="switchVisibility">Show / Hide Password</button>
       <br><br>
 
       <div id="errors" v-if="errors.length">
@@ -87,6 +83,11 @@
       </div>
 
     </div>
+        <h4>Please make sure your Password fulfils the following criterias!</h4>
+      <ul v-for="rule in rules" :key="rule">
+        <li>{{rule.message}}</li>
+      </ul>
+      <br>
       <div class="special"><button type="submit">
         Register
       </button>
@@ -106,10 +107,10 @@ export default {
   data: function () {
     return {
       rules: [
-        {message: 'One lowercase letter required.', regex: /.*[a-z].*/ },
-        {message: "One uppercase letter required.", regex: /.*[A-Z].*/},
-        {message: "8 characters minimum.", regex: /.{8,}/},
-        {message: "One number required.", regex: /.*[0-9].*/}
+        {message: 'At Least 1 Lowercase Letter', regex: /.*[a-z].*/ },
+        {message: "At Least 1 Uppercase Letter", regex: /.*[A-Z].*/},
+        {message: "Min. 8 Characters", regex: /.{8,}/},
+        {message: "Min. 1 Number", regex: /.*[0-9].*/}
       ],
       form: {
         fname: '',
@@ -203,7 +204,9 @@ export default {
 
 <style scoped>
 #register {
-  padding:50px;
+  padding-top:30px;
+  padding-left: 80px;
+  padding-bottom: 50px;
 }
 .special button {
   background-color: rgb(32,52,79);

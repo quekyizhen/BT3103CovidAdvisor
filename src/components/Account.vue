@@ -1,7 +1,7 @@
 <template>
 <div id="fitb">
   <h1>Personal Info:</h1>
-  <h4>You may update your personal information here</h4>
+  <h4>You may update your personal information here!</h4>
   <div>
     <label for="name">First Name:
       <input type="text" v-model="fname" value="fname">
@@ -32,7 +32,7 @@
     <br>
   </div>
 
-  <button class="end">Save Changes</button>
+  <button class="end">Save All Changes</button>
 
   <br><br><br>
 
@@ -42,8 +42,9 @@
       <input type="email" v-model="resetEmail" value="resetEmail" id="resetEmail">
     </label>
     <br><br>
-    <button class="end" type="submit">Send reset email</button>
+    <button class="end" type="submit">Send Reset Email</button><br>
   </form>
+  <br>
 </div>
 </template>
 
