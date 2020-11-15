@@ -27,6 +27,7 @@ import firebase from 'firebase'
 export default {
     methods: {
       deleteAcc: function () {
+        firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).delete();
         firebase.auth().currentUser.delete();
 
         this.$router.push("/");
