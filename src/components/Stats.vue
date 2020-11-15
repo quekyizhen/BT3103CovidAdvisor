@@ -1,16 +1,15 @@
 <template>
   <div id="stats">
-    <h1>COVID-19 STATISTICS</h1>
+    <h1>SINGAPORE COVID-19 STATISTICS</h1>
     <br>
     <h2>Most Common Symptoms</h2>
     <word-cloud></word-cloud>
 
-    <br><br>
     <h2>COVID-19 Cases by Age Groups</h2>
     <div id="age">
     <age-bar></age-bar>
     </div>
-    <br><br><br><br><br><br>
+    <br><br>
     <h2>Proportion of COVID-19 Cases</h2>
     <div id="doughs">
       <div id="gender">
@@ -33,7 +32,6 @@
       <h2>Daily COVID-19 Cases in Singapore</h2>
       <line-breakdown></line-breakdown>
     </div>
-    <br><br><br><br>
     <div id="cumulative">
       <h2>Cumulative Daily COVID-19 Cases in Singapore</h2>
       <line-culmulative></line-culmulative>
@@ -75,7 +73,7 @@ h1 {
    color: #0e3964;
  }
  #stats {
-   padding:50px;
+   padding:30px;
  }
  #nationality {
    display: inline-block;
@@ -88,19 +86,14 @@ h1 {
  }
  .breakdown h2 {
   text-align: center;
-  padding-top: 50px;
  }
 #breakdown {
-  padding-top: 90px;
-  padding-left: 60px;
+  padding-left: 30px;
  }
  #cumulative {
-  padding-top: 90px;
-  padding-left: 60px;
+  padding-left: 30px;
  }
-#doughs {
-  padding-top: 70px;
-}
+
 .doughnuts {
   padding: 0 100px 100px;
 

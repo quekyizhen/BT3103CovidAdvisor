@@ -1,7 +1,7 @@
 <template>
     <div id="map">
         <div id="title">
-            <h1>Public places that confirmed cases visited during infectious period</h1>
+            <h1>Public Places that confirmed COVID-19 cases visited when infectious!</h1>
             <p>These public places had been visited for more than 30 minutes by the confirmed cases in the community. 
                 Those who had been identified as close contacts of confirmed cases would already have been notified by MOH. 
                 Click <a target="_blank" href="https://wereyouthere.safeentry.gov.sg/"> here</a> to check if you have been to these places.
@@ -12,7 +12,7 @@
                     <li>See a doctor promptly if you develop symptoms and inform the doctor of your exposure history</li>
                 </ul>
 
-            <button type="button" class="end" @click="showModal">List of places</button>
+            <button type="button" class="end" @click="showModal">Click Here to check out the Locations!</button>
                 <modal-map-list id="modal" v-show="isModalVisible" @close="closeModal"/>
         </div>
         <div id="large-container">
@@ -206,7 +206,6 @@ import ModalMapList from './ModalMapList.vue';
 #title {
     text-align: left;
     padding-left: 40px;
-    padding-top:20px;
     font-size: 18px;
 }
 .vue-map-container,
@@ -327,7 +326,7 @@ tr:nth-child(odd) {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 18px;
     margin: 8px 4px;
     cursor: pointer;
     border-radius: 8px;

@@ -65,10 +65,6 @@
                 <input type="checkbox" checked="checked" value="Liver Disease" v-model="riskSelected">
                 <span class="checkmark"></span>
             </label>
-            <label class="container">Cardiac Disease
-                <input type="checkbox" checked="checked" value="Cardiac Disease" v-model="riskSelected">
-                <span class="checkmark"></span>
-            </label>
             <label class="container">Immunosupressed
                 <input type="checkbox" checked="checked" value="Immunosupressed" v-model="riskSelected">
                 <span class="checkmark"></span>
@@ -140,7 +136,9 @@ export default {
 
 <style scoped>
 #symptoms {
-  padding:60px;
+  padding-top:30px;
+  padding-left: 80px;
+  padding-bottom: 50px;
 }
 .title {
   text-align: center;

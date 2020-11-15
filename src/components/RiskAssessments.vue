@@ -2,7 +2,7 @@
 <div>
   <div onload="addSymptomsEvent" id="cal">
     <h1>My Calendar</h1>
-    <button id="end" @click="addSymptomsEvent()">Show Risk Assessments</button><br><br>
+    <button id="end" @click="addSymptomsEvent()">Show Risk Assessments</button><br><br><br>
     <calendar-view
         :show-date="showDate"
         :items="riskAssessments"
@@ -29,9 +29,9 @@
       </ul>
     </div>
   </div>
-
-  <h2>Clear past risk assessments</h2>
-  <h4>By clicking the button below all your past risk assessments will be permanently deleted</h4>
+<br><br><br>
+  <h2>Clear All Risk Assessments</h2>
+  <h4>By clicking the button below, all your past risk assessments will be permanently deleted!</h4>
   <button id="end" @click="clearAssessments">Clear Risk Assessments</button>
 </div>
 </template>
