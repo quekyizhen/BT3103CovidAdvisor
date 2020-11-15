@@ -2,8 +2,13 @@
 <div id="fitb">
         <h1>Preferences:</h1>
 
+<<<<<<< refs/remotes/eram576/master
         <label for="name">Language:
          <select v-model="selected" id="languages">
+=======
+        <label for="languages">Language:
+        <select v-model="languages" id="languages">
+>>>>>>> First draft of app complete.
             <option disabled value=""></option>
             <option>English</option>
             <option>Chinese</option>

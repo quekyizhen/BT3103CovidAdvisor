@@ -50,7 +50,6 @@ export default {
   border: 1px solid rgb(32,52,79);
   background-color: rgb(32,52,79);
   width: 20%;
-  margin-right: 30px;
   vertical-align: top;
   padding-bottom: 20px;
   padding-right: 0;

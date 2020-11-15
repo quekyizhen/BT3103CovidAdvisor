@@ -5,20 +5,27 @@
     <h2>Most Common Symptoms</h2>
     <word-cloud></word-cloud>
 
+    <br><br>
     <h2>COVID-19 Cases by Age Groups</h2>
     <div id="age">
     <age-bar></age-bar>
     </div>
-
+    <br><br><br><br><br><br>
+    <h2>Proportion of COVID-19 Cases</h2>
     <div id="doughs">
       <div id="gender">
-        <h2>Proportion of COVID-19 Cases by Gender</h2>
+
+        <h2>By Gender</h2>
+        <div class="doughnuts">
         <doughnut-gender></doughnut-gender>
+        </div>
       </div>
       
       <div id="nationality">
-        <h2>Proportion of COVID-19 Cases by Nationality</h2>
+        <h2>By Nationality</h2>
+        <div class="doughnuts">
         <doughnut-nationality></doughnut-nationality>
+        </div>
       </div>
     </div>
 
@@ -26,7 +33,7 @@
       <h2>Daily COVID-19 Cases in Singapore</h2>
       <line-breakdown></line-breakdown>
     </div>
-
+    <br><br><br><br>
     <div id="cumulative">
       <h2>Cumulative Daily COVID-19 Cases in Singapore</h2>
       <line-culmulative></line-culmulative>
@@ -72,14 +79,12 @@ h1 {
  }
  #nationality {
    display: inline-block;
-   padding-left: 250px;
-   position:left;
+   width:50%;
+
  }
  #gender {
-   display: inline-block; 
-   padding-left: 150px;
-   padding-top: 50px;
-   position:right;
+   display: inline-block;
+   width:50%;
  }
  .breakdown h2 {
   text-align: center;
@@ -95,6 +100,10 @@ h1 {
  }
 #doughs {
   padding-top: 70px;
+}
+.doughnuts {
+  padding: 0 100px 100px;
+
 }
 
 </style>
