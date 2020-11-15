@@ -32,6 +32,14 @@ export default {
           display: true,
           text: "Bar Chart of COVID-19 Cases Age Group",
         },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              var percentage = (parseFloat(data['datasets'][0]['data'][tooltipItem['index']])/31).toFixed(1);
+              return data['labels'][tooltipItem['index']] + ': ' + percentage + '%';
+            }
+          }
+        },
         responsive: true,
         maintainAspectRatio: false,
       },
