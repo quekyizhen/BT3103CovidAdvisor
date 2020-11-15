@@ -8,7 +8,7 @@
       Take our risk assessment to find out your risk of having COVID-19, view latest statistics and monitor locations visited by COVID-19 patients, all on one platform.<br><br>
       Register an account to keep track of your symptoms and more or simply take the assessment now — it's fast, free and anonymous.
     </p>
-      <br><br><br>
+      <br><br>
     Simply follow the steps below to take the assessment:
     <ol>
       <li>Enter your symptoms information</li>

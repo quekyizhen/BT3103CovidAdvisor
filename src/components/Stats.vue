@@ -74,7 +74,7 @@ export default {
  }
  #nationality {
    display: inline-block;
-   padding-left: 300px;
+   padding-left: 310px;
  }
  #gender {
    display: inline-block; 
@@ -87,9 +87,11 @@ export default {
  }
 #breakdown {
   padding-top: 120px;
+  padding-left: 40px;
  }
  #cumulative {
   padding-top: 120px;
+  padding-left: 40px;
  }
 
 </style>
