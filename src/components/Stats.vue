@@ -75,21 +75,25 @@ export default {
  #nationality {
    display: inline-block;
    padding-left: 300px;
+   position:left;
  }
  #gender {
    display: inline-block; 
-   padding-left: 30px;
-   padding-top: 120px;
+   padding-left: 150px;
+   padding-top: 50px;
+   position:right;
  }
  .breakdown h2 {
   text-align: center;
-  padding-top: 120px;
+  padding-top: 50px;
  }
 #breakdown {
-  padding-top: 120px;
+  padding-top: 50px;
+  padding-left: 100px;
  }
  #cumulative {
-  padding-top: 120px;
+  padding-top: 50px;
+  padding-left: 100px;
  }
 
 </style>
