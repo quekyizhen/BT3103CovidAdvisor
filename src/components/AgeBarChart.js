@@ -30,7 +30,6 @@ export default {
         legend: { display: false },
         title: {
           display: true,
-          text: "Bar Chart of COVID-19 Cases Age Group",
         },
         tooltips: {
           callbacks: {
