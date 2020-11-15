@@ -12,7 +12,7 @@ export default {
   },
   computed: {
     myStyles () {
-      return {height: '550px', width: '1340px'}
+      return {height: '550px', width: '1380px'}
     }
   },
 };
