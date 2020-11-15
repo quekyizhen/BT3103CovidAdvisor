@@ -82,7 +82,7 @@
                     </label>
             </div>
       
-      <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: </p>
+      <p class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: </p>
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   

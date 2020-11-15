@@ -6,7 +6,6 @@
     <calendar-view
         :show-date="showDate"
         :items="riskAssessments"
-        
         @click-item="onClickEvent(calendarItem, windowEvent)"
     >
       <calendar-view-header
@@ -65,7 +64,14 @@ export default {
     },
     clearAssessments() {
       this.riskAssessments = [];
+      this.events = [];
+      var user = firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid);
+      // Remove the 'calendarEvents' field from the document
+      var removeEvents = user.update({
+          calendarEvents: firebase.firestore.FieldValue.delete()
+      });
       document.getElementById("risk").innerHTML = "";
+      return removeEvents;
     },
     onClickEvent() {
       this.isHidden = !this.isHidden;
@@ -96,8 +102,7 @@ export default {
 
     addSymptomsEvent() {
       this.getEvents();
-      var arrayLength = this.events.length;
-      for (var i = 0; i < arrayLength; i++) {
+      for (var i = 0; i < this.events.length; i++) {
           var num = i+1;
           var dict = {};
           dict['id'] = String(num);
