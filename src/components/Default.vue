@@ -8,7 +8,7 @@
       Take our risk assessment to find out your risk of having COVID-19, view latest statistics and monitor locations visited by COVID-19 patients, all on one platform.<br><br>
       Register an account to keep track of your symptoms and more or simply take the assessment now — it's fast, free and anonymous.
     </p>
-      <br><br><br>
+      <br><br>
     Simply follow the steps below to take the assessment:
     <ol>
       <li>Enter your symptoms information</li>
@@ -18,7 +18,7 @@
 
       <br><br>
 
-      <button class="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
+      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
     </div>
 
     <div id="wrapper">
@@ -28,10 +28,10 @@
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
       <h1 id="title2">For more information and latest updates, visit the links below:</h1>
-      <a class="news" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
+      <a class="news" target="_blank" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
       <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
       </a>
-      <a class="news" href="https://www.moh.gov.sg/covid-19">
+      <a class="news" target="_blank" href="https://www.moh.gov.sg/covid-19">
       <img border="0" src="@/assets/moh.jpg" width="105" height="55">
       </a>
     </div>
@@ -46,7 +46,7 @@ import { Timeline } from 'vue-tweet-embed'
 
 export default {
   name: "Default",
-components: {
+  components: {
      Timeline
 }
 }
@@ -61,7 +61,7 @@ components: {
   font-size: 30px;
 }
 #middle {
-  font-size: 20px;
+  font-size: 18px;
 }
 ol {
   font-size:18px;
@@ -73,7 +73,7 @@ ol {
   vertical-align:top;
   text-align:justify;
   margin: 30px 100px 30px 30px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* #twitter {
@@ -109,15 +109,9 @@ ol {
   width:350px;
   background:white;
 }
-#title2 {
-
-}
 
 .news {
 padding: 20px;
-}
-#news2 {
-
 }
 </style>
 

@@ -98,6 +98,18 @@ select {
     clear: both;
     width: 100px
 }
-
+.end {
+    background-color: rgb(32,52,79);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 8px 4px;
+    cursor: pointer;
+    border-radius: 8px;
+}
 
 </style>

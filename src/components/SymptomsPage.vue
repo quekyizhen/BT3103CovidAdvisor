@@ -82,7 +82,7 @@
                     </label>
             </div>
       
-        <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
+        <p class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: 
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   
@@ -195,6 +195,13 @@ p.symps {
   max-width:300px;
 	padding:1em;
 	background:whitesmoke;
+}
+
+button {
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    font-weight: bold;
 }
 
 /* Customize the label (the container) */

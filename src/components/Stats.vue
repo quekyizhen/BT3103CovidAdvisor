@@ -10,7 +10,7 @@
     <age-bar></age-bar>
     </div>
 
-    <div>
+    <div id="doughs">
       <div id="gender">
         <h2>Proportion of COVID-19 Cases by Gender</h2>
         <doughnut-gender></doughnut-gender>
@@ -60,10 +60,8 @@ export default {
 
 <style scoped>
 
- h1 {
-   font-size:35px;
+h1 {
    text-align: center;
-   color: #20344a;
  }
  h2 {
    text-align: center;
@@ -74,22 +72,29 @@ export default {
  }
  #nationality {
    display: inline-block;
-   padding-left: 300px;
+   padding-left: 250px;
+   position:left;
  }
  #gender {
    display: inline-block; 
-   padding-left: 30px;
-   padding-top: 120px;
+   padding-left: 150px;
+   padding-top: 50px;
+   position:right;
  }
  .breakdown h2 {
   text-align: center;
-  padding-top: 120px;
+  padding-top: 50px;
  }
 #breakdown {
-  padding-top: 120px;
+  padding-top: 90px;
+  padding-left: 60px;
  }
  #cumulative {
-  padding-top: 120px;
+  padding-top: 90px;
+  padding-left: 60px;
  }
+#doughs {
+  padding-top: 70px;
+}
 
 </style>
