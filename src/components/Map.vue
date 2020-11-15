@@ -4,7 +4,7 @@
             <h1>Public places that confirmed cases had visited during infectious period</h1>
             <p>These public places had been visited for more than 30 minutes by the confirmed cases in the community. 
                 Those who had been identified as close contacts of confirmed cases would already have been notified by MOH. 
-                <br>Click <a target="_blank" href="https://wereyouthere.safeentry.gov.sg/"> here</a> to check if you have been to these places.
+                Click <a target="_blank" href="https://wereyouthere.safeentry.gov.sg/"> here</a> to check if you have been to these places.
             </p>
             <p> If you have been at these locations during these specified timings:
                 <ul>
@@ -207,6 +207,7 @@ import ModalMapList from './ModalMapList.vue';
     text-align: left;
     padding-left: 40px;
     padding-top:20px;
+    font-size: 18px;
 }
 .vue-map-container,
 .vue-map-container .vue-map {
@@ -275,11 +276,12 @@ a:hover {
     flex-grow: 1;
     margin: 30px;
     margin-top:90px;
-    max-width:300px;
-    max-height:180px;
+    width: 30%;
+    height: 20%;
     padding:1em;
 	background:whitesmoke;
     display: inline-block;
+    font-size: 16px;
 }
 
 img {
