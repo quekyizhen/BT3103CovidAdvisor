@@ -11,7 +11,7 @@
 
     </div>
     <div id="photobar">
-      <div class="titletext">Welcome, {{username}}.</div>
+      <div class="titletext">Welcome {{username}}!</div>
     </div>
     <div style="width:100%">
       <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut" :signedIn="signedIn"></router-view>
@@ -29,7 +29,6 @@ export default {
   },
   data() {
     return {
-      username: "User",
       signedIn: false
     }
   },
@@ -41,7 +40,6 @@ export default {
     },
     toggleSignOut() {
       this.signedIn = false;
-      this.username = 'User';
     }
   },
 
@@ -76,10 +74,9 @@ h1 {
 
 
 .titletext {
-  font-size:70px;
+  font-size:80px;
   float:right;
-  margin: 100px 20% 50px 50px;
-  width:400px;
+  margin: 120px 10% 120px 120px;
   text-align:right;
 }
 
@@ -125,7 +122,7 @@ h1 {
   background: url(https://static.tumblr.com/c1oapfr/2ysqip0tr/artboard_1.png) bottom;
   background-size: 100%;
   width:100%;
-  height: 440px;
+  height: 380px;
 }
 
 #copyright {

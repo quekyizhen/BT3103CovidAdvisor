@@ -15,8 +15,9 @@
         </label><br><br><br>
 
         <h1>Delete Account:</h1>
-        <h4>Your account will be permanently deleted.</h4>
+        <p>WARNING! Your account will be permanently deleted!</p>
         <br>
+        
         <button class="end" @click="deleteAcc">Delete My Account</button>
 
     </div>

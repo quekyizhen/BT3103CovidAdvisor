@@ -1,12 +1,12 @@
 <template>
 <div id="login">
-  <h1>Sign in</h1>
+  <h1>Sign In</h1>
   <form novalidate @submit.prevent="login">
   <label for="email">Email:</label>
   <input type="text" v-model="email" value="email" id="email"><br>
   <label for="password">Password:</label>
   <input type="password" v-model="password" value="password" id="password">
-    <router-link to="/forgot">forgot password?</router-link><br>
+    <router-link to="/forgot">Forgot Password?</router-link><br>
   <button type="submit">Sign In</button>
     <ul v-if="errors.length">
       <li v-for="error in errors" :key="error">
@@ -14,9 +14,9 @@
       </li>
     </ul>
   </form>
-  <hr>
-  New to the covid advisor? <a><router-link to="/register">Register here</router-link></a> or
-  <a><router-link to="/symptoms1">continue anonymously</router-link></a>.
+  <hr><br><h3>
+  New to the SAFETRACK? </h3><a><br><router-link to="/register">Register Here</router-link></a> or
+  <a><router-link to="/symptoms1">Continue Anonymously</router-link></a>.
 </div>
 </template>
 
@@ -83,7 +83,9 @@ export default {
 
 <style scoped>
 #login {
-  padding:60px;
+  padding-top:30px;
+  padding-left: 80px;
+  padding-bottom: 50px;
 }
 input {
   padding:10px;
