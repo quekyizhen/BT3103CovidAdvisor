@@ -3,7 +3,7 @@
         <h1>Preferences:</h1>
 
         <label for="name">Language:
-         <select id="languages">
+         <select v-model="selected" id="languages">
             <option disabled value=""></option>
             <option>English</option>
             <option>Chinese</option>
@@ -25,6 +25,11 @@
 <script>
 import firebase from 'firebase'
 export default {
+data: function () {
+		return {
+    selected: 'English',
+    }
+  },
     methods: {
       deleteAcc: function () {
         firebase.auth().currentUser.delete();
