@@ -1,19 +1,9 @@
 <template>
 <div id="fitb">
         <h1>Preferences:</h1>
-
-<<<<<<< HEAD
-<<<<<<< refs/remotes/eram576/master
-        <label for="name">Language:
+	
+	<label for="name">Language:
          <select v-model="selected" id="languages">
-=======
-        <label for="languages">Language:
-        <select v-model="languages" id="languages">
->>>>>>> First draft of app complete.
-=======
-        <label for="languages">Language:
-        <select v-model="languages" id="languages">
->>>>>>> master
             <option disabled value=""></option>
             <option>English</option>
             <option>Chinese</option>
@@ -25,7 +15,7 @@
         </label><br><br><br>
 
         <h1>Delete Account:</h1>
-        <p>WARNING! Your account will be permanently deleted!</p>
+        <p>Your account will be permanently deleted</p>
         <br>
         
         <button class="end" @click="deleteAcc">Delete My Account</button>
