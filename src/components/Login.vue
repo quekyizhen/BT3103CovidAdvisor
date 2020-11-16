@@ -15,7 +15,7 @@
     </ul>
   </form>
   <hr><br><h3>
-  New to the SAFETRACK? </h3><a><br><router-link to="/register">Register Here</router-link></a> or
+  New to the SafeTrack? </h3><a><br><router-link to="/register">Register Here</router-link></a> or
   <a><router-link to="/symptoms1">Continue Anonymously</router-link></a>.
 </div>
 </template>

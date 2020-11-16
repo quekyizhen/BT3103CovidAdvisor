@@ -2,8 +2,18 @@
 <div id="fitb">
         <h1>Preferences:</h1>
 
+<<<<<<< HEAD
+<<<<<<< refs/remotes/eram576/master
+        <label for="name">Language:
+         <select v-model="selected" id="languages">
+=======
         <label for="languages">Language:
         <select v-model="languages" id="languages">
+>>>>>>> First draft of app complete.
+=======
+        <label for="languages">Language:
+        <select v-model="languages" id="languages">
+>>>>>>> master
             <option disabled value=""></option>
             <option>English</option>
             <option>Chinese</option>
@@ -26,6 +36,11 @@
 <script>
 import firebase from 'firebase'
 export default {
+data: function () {
+		return {
+    selected: 'English',
+    }
+  },
     methods: {
       deleteAcc: function () {
         firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).delete();
