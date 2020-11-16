@@ -246,7 +246,7 @@ import ModalMapList from './ModalMapList.vue';
 
 }
 .infoW-date {
-  line-height: 0.3em;
+  line-height: 1.1em;
   display: block;
   font-size: 1.1em;
   margin-left: 2em;
