@@ -11,7 +11,7 @@
 
     </div>
     <div id="photobar">
-      <div class="titletext">Welcome {{username}}!</div>
+      <div class="titletext">Welcome{{username}}.</div>
     </div>
     <div style="width:100%">
       <router-view @toggleSignIn="toggleSignIn" @toggleSignOut="toggleSignOut" :signedIn="signedIn"></router-view>
@@ -29,17 +29,19 @@ export default {
   },
   data() {
     return {
-      signedIn: false
+      signedIn: false,
+      username: " to SafeTrack"
     }
   },
   methods: {
     toggleSignIn(username) {
       this.signedIn = true;
-      this.username = username;
+      this.username = ", " + username;
       this.$router.push("/");
     },
     toggleSignOut() {
       this.signedIn = false;
+      this.username = " to SafeTrack";
     }
   },
 
@@ -75,9 +77,11 @@ h1 {
 
 .titletext {
   font-size:80px;
-  float:right;
-  margin: 120px 10% 120px 120px;
   text-align:right;
+  position:relative;
+  left:calc(100% - 600px);
+  top:20%;
+  max-width:500px;
 }
 
 #header {
