@@ -1,6 +1,6 @@
 <template>
   <div id="stats">
-    <h1>COVID-19 STATISTICS</h1>
+    <h1>SINGAPORE COVID-19 STATISTICS</h1>
     <br>
     <h2>Most Common Symptoms</h2>
     <word-cloud></word-cloud>
@@ -9,16 +9,22 @@
     <div id="age">
     <age-bar></age-bar>
     </div>
-
+    <br><br>
+    <h2>Proportion of COVID-19 Cases</h2>
     <div id="doughs">
       <div id="gender">
-        <h2>Proportion of COVID-19 Cases by Gender</h2>
+
+        <h2>By Gender</h2>
+        <div class="doughnuts">
         <doughnut-gender></doughnut-gender>
+        </div>
       </div>
       
       <div id="nationality">
-        <h2>Proportion of COVID-19 Cases by Nationality</h2>
+        <h2>By Nationality</h2>
+        <div class="doughnuts">
         <doughnut-nationality></doughnut-nationality>
+        </div>
       </div>
     </div>
 
@@ -26,7 +32,6 @@
       <h2>Daily COVID-19 Cases in Singapore</h2>
       <line-breakdown></line-breakdown>
     </div>
-
     <div id="cumulative">
       <h2>Cumulative Daily COVID-19 Cases in Singapore</h2>
       <line-culmulative></line-culmulative>
@@ -68,33 +73,30 @@ h1 {
    color: #0e3964;
  }
  #stats {
-   padding:50px;
+   padding:30px;
  }
  #nationality {
    display: inline-block;
-   padding-left: 250px;
-   position:left;
+   width:50%;
+
  }
  #gender {
-   display: inline-block; 
-   padding-left: 150px;
-   padding-top: 50px;
-   position:right;
+   display: inline-block;
+   width:50%;
  }
  .breakdown h2 {
   text-align: center;
-  padding-top: 50px;
  }
 #breakdown {
-  padding-top: 90px;
-  padding-left: 60px;
+  padding-left: 30px;
  }
  #cumulative {
-  padding-top: 90px;
-  padding-left: 60px;
+  padding-left: 30px;
  }
-#doughs {
-  padding-top: 70px;
+
+.doughnuts {
+  padding: 0 100px 100px;
+
 }
 
 </style>

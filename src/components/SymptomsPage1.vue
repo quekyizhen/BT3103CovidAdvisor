@@ -1,7 +1,7 @@
 <template>
     <div id="symptoms">
 <form novalidate @submit.prevent="submit">
-        <h1 class="title">Step 1: Track your symptoms</h1>
+        <h1 class="title">Step 1: Track Your Symptoms</h1>
 
       <h2 class="list"><label for="date">Symptoms Onset Date:</label></h2>
         <p class="symps">
@@ -82,7 +82,7 @@
                     </label>
             </div>
       
-      <p id="box" class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: </p>
+      <p class="symps" v-if="symptomsSelected.length !=0"> Symptom(s) Selected: </p>
              <ul>
                 <li v-for="symps in symptomsSelected" v-bind:key="symps">
                 {{symps}}   
@@ -178,7 +178,9 @@ export default {
 
 <style scoped>
 #symptoms {
-  padding:60px;
+  padding-top:30px;
+  padding-left: 80px;
+  padding-bottom: 50px;
 }
 .title {
   text-align: center;

@@ -2,11 +2,10 @@
 <div>
   <div onload="addSymptomsEvent" id="cal">
     <h1>My Calendar</h1>
-    <button id="end" @click="addSymptomsEvent()">Show Risk Assessments</button><br><br>
+    <button id="end" @click="addSymptomsEvent()">Show Risk Assessments</button><br><br><br>
     <calendar-view
         :show-date="showDate"
         :items="riskAssessments"
-        
         @click-item="onClickEvent(calendarItem, windowEvent)"
     >
       <calendar-view-header
@@ -30,9 +29,9 @@
       </ul>
     </div>
   </div>
-
-  <h2>Clear past risk assessments</h2>
-  <h4>By clicking the button below all your past risk assessments will be permanently deleted</h4>
+<br><br><br>
+  <h2>Clear All Risk Assessments</h2>
+  <h4>By clicking the button below, all your past risk assessments will be permanently deleted!</h4>
   <button id="end" @click="clearAssessments">Clear Risk Assessments</button>
 </div>
 </template>
@@ -65,7 +64,14 @@ export default {
     },
     clearAssessments() {
       this.riskAssessments = [];
+      this.events = [];
+      var user = firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid);
+      // Remove the 'calendarEvents' field from the document
+      var removeEvents = user.update({
+          calendarEvents: firebase.firestore.FieldValue.delete()
+      });
       document.getElementById("risk").innerHTML = "";
+      return removeEvents;
     },
     onClickEvent() {
       this.isHidden = !this.isHidden;
@@ -87,17 +93,17 @@ export default {
                 console.log("Error getting document:", error)
               }
             )*/
-      firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
+      return firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).get().then(
         data => {
           this.events = data.data().calendarEvents;
         }
       )
     },
 
-    addSymptomsEvent() {
-      this.getEvents();
-      var arrayLength = this.events.length;
-      for (var i = 0; i < arrayLength; i++) {
+    async addSymptomsEvent() {
+      await this.getEvents();
+
+      for (var i = 0; i < this.events.length; i++) {
           var num = i+1;
           var dict = {};
           dict['id'] = String(num);

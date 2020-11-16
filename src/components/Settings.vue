@@ -2,8 +2,18 @@
 <div id="fitb">
         <h1>Preferences:</h1>
 
+<<<<<<< HEAD
+<<<<<<< refs/remotes/eram576/master
         <label for="name">Language:
          <select v-model="selected" id="languages">
+=======
+        <label for="languages">Language:
+        <select v-model="languages" id="languages">
+>>>>>>> First draft of app complete.
+=======
+        <label for="languages">Language:
+        <select v-model="languages" id="languages">
+>>>>>>> master
             <option disabled value=""></option>
             <option>English</option>
             <option>Chinese</option>
@@ -15,8 +25,9 @@
         </label><br><br><br>
 
         <h1>Delete Account:</h1>
-        <h4>Your account will be permanently deleted.</h4>
+        <p>WARNING! Your account will be permanently deleted!</p>
         <br>
+        
         <button class="end" @click="deleteAcc">Delete My Account</button>
 
     </div>
@@ -32,6 +43,7 @@ data: function () {
   },
     methods: {
       deleteAcc: function () {
+        firebase.firestore().collection('accounts').doc(firebase.auth().currentUser.uid).delete();
         firebase.auth().currentUser.delete();
 
         this.$router.push("/");

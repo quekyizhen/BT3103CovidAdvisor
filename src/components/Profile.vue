@@ -50,10 +50,10 @@ export default {
   border: 1px solid rgb(32,52,79);
   background-color: rgb(32,52,79);
   width: 20%;
-  margin-right: 30px;
   vertical-align: top;
   padding-bottom: 20px;
-  padding-right: 0;
+  padding-left: 20px;
+  padding-top: 25px;
 }
 #tab h1 {
     color: white;
@@ -88,6 +88,8 @@ export default {
   text-align: left;
   vertical-align: top;
   padding: 40px;
+  padding-left: 80px;
+
   background:white;
   overflow:auto;
   flex-grow: 1;
@@ -119,7 +121,7 @@ select {
 	padding:1em;
 	background:whitesmoke;
 	margin: 1.5em 0;
-	font-size: .9em;
+	font-size: 1em;
 }
 .hints p {
 	margin: 0;

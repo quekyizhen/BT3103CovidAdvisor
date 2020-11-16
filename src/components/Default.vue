@@ -1,8 +1,10 @@
 <template>
+  
   <div id="default">
-
+    
     <div id="textbox">
-    <h1 id="start">Welcome to the COVID-19 Symptoms Advisor</h1>
+    <h1 id="start">Welcome to SafeTrack!</h1>
+    <h3>A COVID-19 Symptoms Tracker</h3>
 
     <p id="middle">
       Take our risk assessment to find out your risk of having COVID-19, view latest statistics and monitor locations visited by COVID-19 patients, all on one platform.<br><br>
@@ -11,28 +13,30 @@
       <br><br>
     Simply follow the steps below to take the assessment:
     <ol>
-      <li>Enter your symptoms information</li>
-      <li>Enter your brief medical history </li>
-      <li>Done! Your assessment results will reveal the likelihood of contracting COVID-19 and advice you on the next steps</li>
+      <li>Enter your symptoms information.</li>
+      <li>Enter your brief medical history.</li>
+      <li>Done! The likelihood of you contracting COVID-19 will be revealed and you will be adviced on the next steps to take!</li>
     </ol>
 
       <br><br>
 
-      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start assessment now</router-link></button>
+      <button id="end" style="font-size:18px;font-weight:bold;margin:10px"><router-link to="/symptoms1">Start your Assessment Now!</router-link></button>
     </div>
 
     <div id="wrapper">
-      <h1 id="title">Stay updated with the latest tweets from WHO:</h1>
+      <h1 id="title">Stay Updated from the World Health Organization:</h1>
     <div id="twitter">
 
       <Timeline id="WHO" sourceType="profile" style="width:350px;" :options="{ tweetLimit: '10' }"/>
     </div>
-      <h1 id="title2">For more information and latest updates, visit the links below:</h1>
+      <br>
+      <h2 id="title2">For more latest information and updates, visit the links below:</h2>
       <a class="news" target="_blank" href="https://www.channelnewsasia.com/news/topics/coronavirus-covid-19">
       <img border="0" src="@/assets/cnn.jpg" width="105" height="55">
       </a>
       <a class="news" target="_blank" href="https://www.moh.gov.sg/covid-19">
       <img border="0" src="@/assets/moh.jpg" width="105" height="55">
+      
       </a>
     </div>
     
@@ -54,11 +58,14 @@ export default {
 
 <style scoped>
 #default {
-  padding:50px;
+  padding-top:20px;
+  padding-left:40px;
+  padding-right:40px;
+  padding-bottom:60px;
 }
 
 #start {
-  font-size: 30px;
+  font-size: 40px;
 }
 #middle {
   font-size: 18px;
@@ -69,35 +76,20 @@ ol {
 }
 #textbox {
   display:inline-block;
-  width:calc(100% - 500px);
+  width:calc(100% - 550px);
   vertical-align:top;
   text-align:justify;
   margin: 30px 100px 30px 30px;
   font-size: 18px;
 }
 
-/* #twitter {
-  width:350px;
-  padding:20px;
-  display:inline-block;
-  height:425px;
-  overflow:auto;
-  vertical-align:top;
-} */
-/* #title {
-  width:350px;
-  padding:10px;
-} */
-/* #news {
-  margin-left: 20px;
-} */
 #wrapper {
-  width:350px;
+  width:400px;
   display:inline-block;
   height:500px;
 }
 #twitter {
-  width:350px;
+  width:400px;
   height:425px;
   overflow:auto;
   right: 35px;
@@ -106,7 +98,7 @@ ol {
 #title {
   position: sticky;
   top:0;
-  width:350px;
+  width:400px;
   background:white;
 }
 
